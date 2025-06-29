@@ -12,11 +12,10 @@ const Blog = () => {
           <ul className="space-y-8">
             <li>
               <Link href="/blog/posts/slug?slug=latex-version" className="text-xl font-semibold hover:text-blue-600">
-                From Least Squares to Likelihood: The True Nature of Linear Regression
+                From Least Squares to Likelihood: The Dual Nature of Linear Regression
               </Link>
               <p className="text-gray-600 mt-2">June 29, 2025</p>
-              <p className="text-gray-500 mt-2">
-                A mathematically rigorous journey through linear regression — from geometric intuition to probabilistic modeling, connecting least squares with maximum likelihood estimation.
+              <p className="text-gray-500 mt-2">A rigorous derivation of linear regression as both a geometric projection and a probabilistic model under Gaussian noise connecting least squares with maximum likelihood estimation .
               </p>
             </li>
           </ul>

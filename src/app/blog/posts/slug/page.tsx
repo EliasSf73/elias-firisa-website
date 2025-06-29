@@ -5,14 +5,14 @@ import Link from 'next/link';
 import { LaTeX } from '@/components/LaTeX';
 
 export const metadata = {
-  title: 'From Least Squares to Likelihood: The True Nature of Linear Regression',
-  description: 'A mathematically rigorous journey through linear regression — from geometric intuition to probabilistic modeling, connecting least squares with maximum likelihood estimation.',
+  title: 'From Least Squares to Likelihood: The Dual Nature of Linear Regression',
+  description: 'A rigorous derivation of linear regression as both a geometric projection and a probabilistic model under Gaussian noise:connecting least squares with maximum likelihood estimation.',
 };
 
 const LinearRegression = () => {
   return (
     <article className="max-w-3xl mx-auto prose prose-lg prose-gray dark:prose-invert">
-      <h1>From Least Squares to Likelihood: The True Nature of Linear Regression</h1>
+      <h1>From Least Squares to Likelihood: The Dual Nature of Linear Regression</h1>
       <p className="text-gray-600 mb-8">June 29, 2025</p>
       <p className="text-sm text-gray-600 italic mb-6">
   This post is accessible to readers with a basic understanding of matrix algebra and probability. 
@@ -213,17 +213,91 @@ const LinearRegression = () => {
 </div>
 
 <p>
-  This is a standard quadratic minimization problem. 
-  To find the minimum, we take the gradient of <LaTeX math="\mathcal{L}(\tilde{w})" />  
-  with respect to <LaTeX math="\tilde{w}"  /> and set it to zero:
+  This is a standard quadratic minimization problem. Let’s expand the squared loss function 
+  <LaTeX math="\mathcal{L}(\tilde{w}) = \|y - \tilde{X} \tilde{w}\|_2^2" /> 
+  {''} into a fully expanded quadratic form:
 </p>
 
 <div className="text-center mt-4 mb-4">
-  <LaTeX math="\nabla_{\tilde{w}} \mathcal{L} = -2\tilde{X}^\top(y - \tilde{X} \tilde{w}) = 0" displayMode={true} />
+  <LaTeX math="\mathcal{L}(\tilde{w}) = (y - \tilde{X} \tilde{w})^\top (y - \tilde{X} \tilde{w})" displayMode={true} />
 </div>
 
 <p>
-  Solving this equation gives the normal equation:
+  Expanding this using standard matrix identities:
+</p>
+
+<div className="text-center mt-4 mb-4">
+  <LaTeX math="= y^\top y - 2 \tilde{w}^\top \tilde{X}^\top y + \tilde{w}^\top \tilde{X}^\top \tilde{X} \tilde{w}" displayMode={true} />
+</div>
+<p>
+  Before we compute the gradient, let's confirm that {''}
+  <LaTeX math="\tilde{w}^\top \tilde{X}^\top \tilde{X} \tilde{w}" /> 
+  {''} is indeed a scalar (a single number), which justifies the symmetry trick used later in the derivation.
+</p>
+
+<p>
+  Recall the matrix dimensions:
+</p>
+
+<ul className="pl-6 list-disc">
+  <li>
+    <LaTeX math="\tilde{X} \in \mathbb{R}^{n \times (d+1)}" /> — data matrix with bias column added
+  </li>
+  <li>
+    <LaTeX math="\tilde{w} \in \mathbb{R}^{(d+1) \times 1}" /> — parameter vector
+  </li>
+</ul>
+
+<p>
+  Then we have:
+</p>
+
+<div className="text-center mt-4 mb-4">
+  <LaTeX math="\tilde{w}^\top \tilde{X}^\top \tilde{X} \tilde{w} \in \mathbb{R}^{1 \times 1}" displayMode={true} />
+</div>
+
+<p>
+  Here's the reasoning:
+</p>
+
+<ol className="pl-6 list-decimal">
+  <li><LaTeX math="\tilde{X} \tilde{w} \in \mathbb{R}^{n \times 1}" /> — the predicted values</li>
+  <li><LaTeX math="\tilde{X}^\top (\tilde{X} \tilde{w}) \in \mathbb{R}^{(d+1) \times 1}" /></li>
+  <li><LaTeX math="\tilde{w}^\top (\tilde{X}^\top \tilde{X} \tilde{w}) \in \mathbb{R}^{1 \times 1}" /></li>
+</ol>
+
+<p>
+  Therefore, the whole expression collapses to a single real number. 
+  Since it's a scalar, we can freely take its transpose:
+</p>
+
+<div className="text-center mt-4 mb-4">
+  <LaTeX math="\tilde{w}^\top \tilde{X}^\top \tilde{X} \tilde{w} = (\tilde{w}^\top \tilde{X}^\top \tilde{X} \tilde{w})^\top = \tilde{w}^\top (\tilde{X}^\top \tilde{X})^\top \tilde{w}" displayMode={true} />
+</div>
+
+<p>
+  Which justifies the simplification in the gradient derivation.
+</p>
+
+<p>
+  We now take the gradient of <LaTeX math="\mathcal{L}(\tilde{w})" /> with respect to <LaTeX math="\tilde{w}" />. 
+  Using standard vector calculus identities (listed below), we obtain:
+</p>
+
+<div className="text-center mt-4 mb-4">
+  <LaTeX math="\nabla_{\tilde{w}} \mathcal{L} = -2 \tilde{X}^\top y + 2 \tilde{X}^\top \tilde{X} \tilde{w}" displayMode={true} />
+</div>
+
+<p>
+  Setting the gradient to zero gives the first-order condition:
+</p>
+
+<div className="text-center mt-4 mb-4">
+  <LaTeX math="-2 \tilde{X}^\top y + 2 \tilde{X}^\top \tilde{X} \tilde{w} = 0" displayMode={true} />
+</div>
+
+<p>
+  Cancelling the constant and rearranging, we get the <strong>normal equation</strong>:
 </p>
 
 <div className="text-center mt-4 mb-4">
@@ -231,12 +305,39 @@ const LinearRegression = () => {
 </div>
 
 <p>
-  Assuming <LaTeX math="\tilde{X}^\top \tilde{X}" /> is invertible, the solution is:
+  And assuming <LaTeX math="\tilde{X}^\top \tilde{X}" /> is invertible, the unique solution is:
 </p>
 
 <div className="text-center mt-4 mb-4">
   <LaTeX math="\tilde{w}^* = (\tilde{X}^\top \tilde{X})^{-1} \tilde{X}^\top y" displayMode={true} />
 </div>
+
+<p>
+  This is the closed-form solution to the least squares problem, derived directly from calculus and matrix algebra.
+</p>
+
+<div className="bg-gray-50 border-l-4 border-blue-400 p-4 mt-6 text-sm text-gray-800 rounded">
+  <strong>📘 Matrix Derivative Reference:</strong>
+  <p className="mt-2">
+    The following identities were used in the derivation:
+  </p>
+  <ul className="list-disc list-inside mt-2">
+    <li>
+      <LaTeX math="\frac{\partial}{\partial x} (x^\top A) = A" /> (if <LaTeX math="A" /> is constant)
+    </li>
+    <li>
+      <LaTeX math="\frac{\partial}{\partial x} (Ax) = A" />
+    </li>
+    <li>
+      <LaTeX math="\frac{\partial}{\partial x} (x^\top A x) = A^\top x + A x" /> <br />
+      (or <LaTeX math="2 A x" /> if <LaTeX math="A" /> is symmetric)
+    </li>
+  </ul>
+  <p className="mt-2">
+    These results are foundational in matrix calculus and commonly appear in optimization for machine learning.
+  </p>
+</div>
+
 
 <p>
   This is the closed-form solution to the linear regression problem. 
@@ -316,15 +417,102 @@ const LinearRegression = () => {
 </p>
 
 
-  <p>
-    The Gaussian noise assumption implies that the conditional distribution of the output given the input is:
-  </p>
+<p>
+  The Gaussian noise assumption implies that for each data point, the target value {''}
+  <LaTeX math="y^{(i)}" /> is normally distributed around the linear prediction {''}
+  <LaTeX math="w^\top x^{(i)} + b" /> with variance <LaTeX math="\sigma^2" />:
+</p>
 
   <div className="text-center mt-4 mb-4">
-    <LaTeX math="p(y^{(i)} \mid x^{(i)}) = \mathcal{N}(y^{(i)} \mid w^\top x^{(i)} + b, \sigma^2)" displayMode={true} />
+    <LaTeX math="p(y^{(i)} \mid x^{(i)}) = \mathcal{N}(y^{(i)} \mid w^\top x^{(i)} + b, \sigma^2)=\frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(y^{(i)} - w^\top x^{(i)} - b)^2}{2\sigma^2} \right)"  displayMode={true} />
   </div>
-
   <p>
+  The goal of maximum likelihood is to choose parameters <LaTeX math="w" /> and {''}<LaTeX math="b" /> 
+  {''} that maximize the probability of observing the entire dataset. 
+  Assuming the data points are independent, we can write the likelihood as:
+</p>
+
+<div className="text-center mt-4 mb-4">
+  <LaTeX 
+    math="\mathcal{L}(w, b \mid x^{(1)}, \dots, x^{(n)}) = \prod_{i=1}^{n} p(y^{(i)} \mid x^{(i)}; w, b)" 
+    displayMode={true} 
+  />
+</div>
+
+<p>
+  Plugging in the Gaussian formula for each term:
+</p>
+
+<div className="text-center mt-4 mb-4">
+  <LaTeX 
+    math="\mathcal{L}(w, b) = \prod_{i=1}^{n} \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(y^{(i)} - w^\top x^{(i)} - b)^2}{2\sigma^2}\right)" 
+    displayMode={true} 
+  />
+</div>
+
+<p>
+  Using the product rule for exponentials, we simplify the product:
+</p>
+
+<div className="text-center mt-4 mb-4">
+  <LaTeX 
+    math="\mathcal{L}(w, b) = \left(\frac{1}{\sqrt{2\pi\sigma^2}}\right)^n \cdot \exp\left( -\frac{1}{2\sigma^2} \sum_{i=1}^{n} (y^{(i)} - w^\top x^{(i)} - b)^2 \right)" 
+    displayMode={true} 
+  />
+</div>
+
+<p>
+  To make optimization easier, we take the logarithm of the likelihood function — known as the 
+  <strong> log-likelihood</strong>. Taking the negative of this expression transforms the 
+  maximization problem into a minimization problem:
+</p>
+
+<div className="text-center mt-4 mb-4">
+  <LaTeX 
+    math="-\log \mathcal{L}(w, b) = \frac{n}{2} \log(2\pi\sigma^2) + \frac{1}{2\sigma^2} \sum_{i=1}^{n} (y^{(i)} - w^\top x^{(i)} - b)^2" 
+    displayMode={true} 
+  />
+</div>
+
+<p>
+  Notice that the first term <LaTeX math="\frac{n}{2} \log(2\pi\sigma^2)" /> is constant with respect to {''}
+  <LaTeX math="w" /> and <LaTeX math="b" />, so it has no effect on the optimization.
+</p>
+
+<p>
+  To make this explicit, let’s compute the partial derivatives with respect to the parameters:
+</p>
+
+<div className="text-center mt-4 mb-4">
+  <LaTeX 
+    math="\frac{\partial}{\partial w}, \frac{\partial}{\partial b} \left[-\log \mathcal{L}(w, b)\right] = 0 + \frac{\partial}{\partial w}, \frac{\partial}{\partial b} \left[ \frac{1}{2\sigma^2} \sum_{i=1}^{n} (y^{(i)} - w^\top x^{(i)} - b)^2 \right]" 
+    displayMode={true} 
+  />
+</div>
+
+<p>
+  This shows that the constant term vanishes under differentiation, and what remains is proportional to 
+  the gradient of the squared loss function.
+</p>
+
+<p>
+  Therefore, maximizing the log-likelihood is equivalent to minimizing the following (negative log-likelihood):
+</p>
+
+<div className="text-center mt-4 mb-4">
+  <LaTeX 
+    math="\sum_{i=1}^{n} (y^{(i)} - w^\top x^{(i)} - b)^2" 
+    displayMode={true} 
+  />
+</div>
+
+<p>
+  This is exactly the same loss we derived from a geometric perspective — the squared error — now obtained 
+  from a probabilistic foundation.
+</p>
+
+
+  {/* <p>
     Since the data points are assumed to be i.i.d., the likelihood of the full dataset is the product of the individual densities:
   </p>
 
@@ -338,14 +526,10 @@ const LinearRegression = () => {
 
   <div className="text-center mt-4 mb-4">
     <LaTeX math="\log \mathcal{L}(w, b) = -\frac{n}{2} \log(2\pi\sigma^2) - \frac{1}{2\sigma^2} \sum_{i=1}^{n} (y^{(i)} - w^\top x^{(i)} - b)^2" displayMode={true} />
-  </div>
+  </div> */}
   
 
-  <p>
-    The first term is constant with respect to <LaTeX math="w" /> and <LaTeX math="b" />, 
-    so maximizing the log-likelihood is equivalent to minimizing the second term. 
-    Since <LaTeX math="\sigma^2" /> is also constant, we’re back to minimizing the squared error:
-  </p>
+ 
 
   <div className="text-center mt-4 mb-4">
     <LaTeX math="\min_{w, b} \sum_{i=1}^{n} (y^{(i)} - w^\top x^{(i)} - b)^2" displayMode={true} />
