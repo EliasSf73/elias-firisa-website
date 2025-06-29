@@ -5,7 +5,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -14,21 +14,8 @@ jobs:
           node-version: '18'
       - run: npm install
       - run: npm run build
-      - uses: actions/cache@v3
-        id: npm-cache
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-      - name: Setup Git
-        run: |
-          git config --global user.email "github-actions@github.com"
-          git config --global user.name "GitHub Actions"
-      - name: Deploy to GitHub Pages
-        env:
-          GH_PAT: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          npm install gh-pages --save-dev
-          git remote set-url origin https://x-access-token:${GH_PAT}@github.com/${{ github.repository }}.git
-          npm run deploy
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
