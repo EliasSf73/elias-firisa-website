@@ -29,17 +29,17 @@ const LinearRegression = () => {
       <section>
         <h2>Introduction</h2>
         <p>
-          Imagine you want to predict the price \( y \) of a house in City A. Naturally, the price depends on various factors — 
+          Imagine you want to predict the price <LaTeX math="y" /> of a house in City A. Naturally, the price depends on various factors — 
           the size of the house, its location (proximity to schools, hospitals, etc.), its age, and perhaps a dozen more. 
           In machine learning, we represent these influencing factors as a feature vector:
           <div className="text-center mt-4 mb-4">
             <LaTeX math="\mathbf{X} = [x_1, x_2, \dots, x_n]" />
           </div>
-          where each \( x_i \) is a numerical representation of some property of the house.
+          where each <LaTeX math="x_i" /> is a numerical representation of some property of the house.
         </p>
 
         <p>
-          Our goal is to learn a relationship between \( \mathbf{X} \) and \( y \), so we can predict the price of new houses just from their features.
+          Our goal is to learn a relationship between <LaTeX math="\mathbf{X}" /> and <LaTeX math="y" />, so we can predict the price of new houses just from their features.
           One of the most classic ways to approach this is through <strong>linear regression</strong>:
         </p>
         <div className="text-center mt-4 mb-4">
@@ -47,7 +47,7 @@ const LinearRegression = () => {
         </div>
 
         <p>
-          This is the <strong>least squares perspective</strong>: find the weights \( w_1, \dots, w_n \) and bias \( w_0 \) that minimize the total squared error 
+          This is the <strong>least squares perspective</strong>: find the weights <LaTeX math="w_1, \dots, w_n" /> and bias <LaTeX math="w_0" /> that minimize the total squared error 
           between predicted and actual prices across the training data.
         </p>
         <p>
@@ -63,7 +63,7 @@ const LinearRegression = () => {
         </div>
 
         <p>
-          The \( \varepsilon \) term captures this uncertainty — the deviation between the actual observed value and the model’s idealized prediction 
+          The <LaTeX math="\varepsilon" /> term captures this uncertainty — the deviation between the actual observed value and the model’s idealized prediction 
           It reminds us that the model is a simplification. As the statistician George E. P. Box famously said:
         </p>
 
@@ -77,23 +77,23 @@ const LinearRegression = () => {
         </blockquote>
 
         <p>
-          Thinking of \( \varepsilon \) as a random variable — specifically, as a sample from a probability distribution — 
+          Thinking of <LaTeX math="\varepsilon" /> as a random variable — specifically, as a sample from a probability distribution — 
           turns this from a deterministic equation into a probabilistic model. 
           And as we’ll see next, this small conceptual shift leads us directly to <em>maximum likelihood estimation</em>.
         </p>
         <p>
-          where \( \beta \) represents the coefficients we want to estimate.
+          where <LaTeX math="\beta" /> represents the coefficients we want to estimate.
         </p>
         <p>
           The most common approach to linear regression is through the method of least squares. Given a dataset 
-          with \( n \) observations and \( p \) features, we seek to find a linear relationship between the input features \( \mathbf{X} \) and 
-          the response variable \( y \):
+          with <LaTeX math="n" /> observations and <LaTeX math="p" /> features, we seek to find a linear relationship between the input features <LaTeX math="\mathbf{X}" /> and 
+          the response variable <LaTeX math="y" />:
         </p>
         <div className="text-center mt-4 mb-4">
           <LaTeX math="y = X\beta + \varepsilon" />
         </div>
         <p>
-          where \( \beta \) represents the coefficients we want to estimate.
+          where <LaTeX math="\beta" /> represents the coefficients we want to estimate.
         </p>
 
         <h3>Deriving the Least Squares Solution</h3>
@@ -109,7 +109,7 @@ const LinearRegression = () => {
         <div className="text-center mt-4 mb-4">
           <LaTeX math="X^\top X\beta = X^\top y" />
         </div>
-        <p>          Assuming \( X^\top X \) is invertible, we obtain:        </p>
+        <p>          Assuming <LaTeX math="X^\top X" /> is invertible, we obtain:        </p>
         <div className="text-center mt-4 mb-4">
           <LaTeX math="\hat{\beta} = (X^\top X)^{-1}X^\top y" />
         </div>
