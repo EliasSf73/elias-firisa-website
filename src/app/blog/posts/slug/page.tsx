@@ -99,7 +99,7 @@ const LinearRegression = () => {
 </p>
 
 <div className="text-center mt-4 mb-4">
-  <Image src="/assets/california_housing_head.png" alt="California Housing Dataset Preview" width={700} height={300} style={{ maxWidth: '100%', height: 'auto', borderRadius: '8px' }} />
+  <Image src="/assets/california_housing_head.png" alt="California Housing Dataset Preview" width={700} height={300} loading="eager" style={{ maxWidth: '100%', height: 'auto', borderRadius: '8px' }} />
 </div>
 
 <p>
@@ -140,7 +140,7 @@ const LinearRegression = () => {
 </p>
 
 <div className="text-center mt-4 mb-4">
-    <Image src="/assets/residual_plot.png" alt="Scatter plot with regression line and residuals" width={500} height={400} style={{ maxWidth: '100%', height: 'auto', borderRadius: '8px' }} />
+    <Image src="/assets/residual_plot.png" alt="Scatter plot with regression line and residuals" width={500} height={400} loading="eager" style={{ maxWidth: '100%', height: 'auto', borderRadius: '8px' }} />
 </div>
 
 <p>
