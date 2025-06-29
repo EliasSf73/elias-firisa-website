@@ -16,7 +16,7 @@ const Blog = () => {
               </Link>
               <p className="text-gray-600 mt-2">June 29, 2025</p>
               <p className="text-gray-500 mt-2">
-                An introduction to linear regression from a mathematical perspective, exploring the concept of error terms and the probabilistic nature of models.
+                A mathematically rigorous journey through linear regression — from geometric intuition to probabilistic modeling, connecting least squares with maximum likelihood estimation.
               </p>
             </li>
           </ul>
