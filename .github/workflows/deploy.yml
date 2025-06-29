@@ -5,7 +5,7 @@ on:
     branches: [ main ]
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -15,9 +15,17 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npm run export
-      - uses: JamesIves/github-pages-deploy-action@v4
+      - uses: peaceiris/actions-gh-pages@v3
         with:
-          branch: gh-pages
-          folder: out
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
+          force_orphan: true
+          keep_files: true
           clean: true
-          target-folder: elias_firisa_webiste
+          publish_branch: gh-pages
+          domain: eliasfirisa.github.io
+          external_repository: EliasSf73/elias_firisa_webiste
+          build_script: |
+            npm ci
+            npm run build
+            npm run export
