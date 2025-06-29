@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
+  basePath: '/elias_firisa_webiste',
   images: {
     unoptimized: true,
   },
@@ -8,7 +9,7 @@ const nextConfig = {
     return [
       {
         source: '/:path*',
-        destination: 'https://eliasfirisa.github.io/elias_firisa_webiste/:path*',
+        destination: '/elias_firisa_webiste/:path*',
       },
     ];
   },
