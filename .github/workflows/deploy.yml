@@ -25,6 +25,10 @@ jobs:
         run: |
           git config --global user.email "github-actions@github.com"
           git config --global user.name "GitHub Actions"
-      - run: |
+      - name: Deploy to GitHub Pages
+        env:
+          GH_PAT: ${{ secrets.GITHUB_TOKEN }}
+        run: |
           npm install gh-pages --save-dev
+          git remote set-url origin https://x-access-token:${GH_PAT}@github.com/${{ github.repository }}.git
           npm run deploy
