@@ -5,14 +5,6 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  async rewrites() {
-    return [
-      {
-        source: '/:path*',
-        destination: '/elias_firisa_webiste/:path*',
-      },
-    ];
-  },
 };
 
 module.exports = nextConfig

@@ -23,9 +23,4 @@ jobs:
           keep_files: true
           clean: true
           publish_branch: gh-pages
-          domain: eliasfirisa.github.io
           external_repository: EliasSf73/elias_firisa_webiste
-          build_script: |
-            npm ci
-            npm run build
-            npm run export
