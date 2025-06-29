@@ -123,7 +123,7 @@ const LinearRegression = () => {
           <LaTeX math="y \mid x \sim \mathcal{N}(X\beta, \sigma^2)" />
         </div>
         <p>
-          This formulation assumes that the errors follow a normal distribution with mean 0 and variance \( \sigma^2 \).
+          This formulation assumes that the errors follow a normal distribution with mean 0 and variance <LaTeX math="\sigma^2" displayMode={false} />.
         </p>
 
         <h3>Maximum Likelihood Estimation</h3>
