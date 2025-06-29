@@ -16,7 +16,6 @@
   "description": "",
   "dependencies": {
     "@types/katex": "^0.16.7",
-    "critters": "^3.0.1",
     "katex": "^0.16.22",
     "next": "^15.3.4",
     "react": "^19.1.0",

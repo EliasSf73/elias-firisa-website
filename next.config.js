@@ -7,7 +7,6 @@ const nextConfig = {
   basePath: '/elias_firisa_webiste',
   trailingSlash: true,
   assetPrefix: '/elias_firisa_webiste/',
-  optimizeFonts: true,
 };
 
 module.exports = nextConfig
