@@ -1,10 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: '/elias_firisa_webiste',
   images: {
     unoptimized: true,
   },
+  basePath: '/elias_firisa_webiste',
+  trailingSlash: true,
 };
 
 module.exports = nextConfig
