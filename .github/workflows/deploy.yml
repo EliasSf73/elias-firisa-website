@@ -14,7 +14,6 @@ jobs:
           node-version: '18'
       - run: npm install
       - run: npm run build
-      - run: npm run export
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -28,4 +27,3 @@ jobs:
           build_script: |
             npm install
             npm run build
-            npm run export
