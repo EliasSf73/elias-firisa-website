@@ -12,6 +12,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
+      - run: npm install
+      - run: npm run build
       - uses: actions/cache@v3
         id: npm-cache
         with:
@@ -19,18 +21,6 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - run: npm install
-      - run: npm run build
-      - uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out
-          force_orphan: true
-          keep_files: true
-          clean: true
-          publish_branch: gh-pages
-          domain: eliasfirisa.github.io
-          external_repository: EliasSf73/elias_firisa_webiste
-          build_script: |
-            npm install
-            npm run build
+      - run: |
+          npm install gh-pages --save-dev
+          npm run deploy
