@@ -15,17 +15,9 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npm run export
-      - uses: peaceiris/actions-gh-pages@v3
+      - uses: JamesIves/github-pages-deploy-action@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out
-          force_orphan: true
-          keep_files: true
+          branch: gh-pages
+          folder: out
           clean: true
-          publish_branch: gh-pages
-          domain: eliasfirisa.github.io
-          external_repository: EliasSf73/elias_firisa_webiste
-          build_script: |
-            npm ci
-            npm run build
-            npm run export
+          target-folder: elias_firisa_webiste
