@@ -61,7 +61,7 @@ const Navbar = () => {
             fontWeight: '500',
             transition: 'color 0.2s ease'
           }}>Resources</Link>
-          <a href="/docs/Resume_Elias_Firisa.pdf" target="_blank" rel="noopener noreferrer" style={{
+          <a href="/elias-firisa-website/docs/Resume_Elias_Firisa.pdf" target="_blank" rel="noopener noreferrer" style={{
             color: '#666',
             textDecoration: 'none',
             padding: '0.5rem 1rem',
