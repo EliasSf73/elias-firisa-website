@@ -32,9 +32,12 @@ const Projects = () => {
             <div className="p-6">
               <h5 className="text-2xl font-semibold mb-2">{project.title}</h5>
               <p className="text-gray-400 mb-4">{project.description}</p>
-              <Link href={project.link} className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Learn More
-              </Link>
+              <div className="flex items-center justify-between">
+                <Link href={project.link} className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                  Project Link
+                </Link>
+                <p className="text-sm text-gray-400">(Code & paper-like report included)</p>
+              </div>
             </div>
           </div>
         ))}
