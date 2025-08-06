@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import './globals.css';
+import './fonts.css';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-gray-50 dark:bg-gray-900`}>
+      <body className={`font-sans ${inter.className} bg-gray-50 dark:bg-gray-900`}>
         <div className="container mx-auto px-4">
           <Navbar />
           <main className="py-8">{children}</main>
