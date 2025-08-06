@@ -43,6 +43,7 @@ const Navbar: FC = () => {
         <div style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
           <Link href="/" style={linkStyle}>Home</Link>
           <Link href="/projects" style={linkStyle}>Projects</Link>
+          <Link href="/coursework" style={linkStyle}>Coursework</Link>
           <Link href="/blog" style={linkStyle}>Blog</Link>
           <Link href="/resources" style={linkStyle}>Resources</Link>
           <a href="/elias-firisa-website/docs/Resume_Elias_Firisa.pdf" target="_blank" rel="noopener noreferrer" style={linkStyle}>CV</a>

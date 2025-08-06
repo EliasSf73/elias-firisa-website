@@ -5,7 +5,7 @@ export default function Home() {
     <div className="container mx-auto py-12">
       <section className="text-center">
         <h1 className="text-5xl font-bold mb-4">Elias Firisa</h1>
-        <p className="text-2xl text-gray-600 mb-8">Computational Neuroscience & AI</p>
+        <p className="text-2xl text-gray-600 mb-8">Artificial Intelligence & Computational Neuroscience</p>
         <p className="text-xl mb-12">Welcome to my personal website!</p>
       </section>
 
@@ -15,11 +15,11 @@ export default function Home() {
           <p>
             I am a 4th-year Bachelor student at <Link href="https://www.kaist.ac.kr/en/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">KAIST</Link>,
             majoring in <Link href="https://bcs.kaist.ac.kr/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Brain and Cognitive Science (BCS) </Link>
-            with a minor in AI.
+            with a minor in Artificial Intelligence (AI).
 
           </p>
           <p>
-            My interests lie at the intersection of computational neuroscience and artificial intelligence,
+            My interests lie at the intersection of artificial intelligence and computational neuroscience,
             where I explore how the brain processes information and how we can apply these principles to build more intelligent systems.
           </p>
           <p>
