@@ -61,7 +61,7 @@ const Navbar = () => {
             fontWeight: '500',
             transition: 'color 0.2s ease'
           }}>Resources</Link>
-          <a href="/docs/Elias_resume_05:23.pdf" download style={{
+          <a href="/docs/Elias_resume_05:23.pdf" target="_blank" rel="noopener noreferrer" style={{
             color: '#666',
             textDecoration: 'none',
             padding: '0.5rem 1rem',

@@ -4,9 +4,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: '/elias_firisa_webiste',
+  basePath: '/elias-firisa-website',
   trailingSlash: true,
-  assetPrefix: '/elias_firisa_webiste/',
+  assetPrefix: '/elias-firisa-website/',
 };
 
 module.exports = nextConfig
