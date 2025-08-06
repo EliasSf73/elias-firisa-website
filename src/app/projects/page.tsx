@@ -4,6 +4,12 @@ import Link from 'next/link';
 const Projects = () => {
   const projects = [
     {
+      id: 4,
+      title: 'Machine Learning & Generative Modeling Workflows',
+      description: 'Mini-projects on building, evaluating, and understanding machine learning and generative models through end-to-end pipelines. Topics include: train/validation/test workflows over multiple distributions and split ratios (with bias–variance and regularization analysis), logistic regression (binary cross-entropy, gradient descent), feed-forward neural networks (forward/backward pass), neural ODEs (adjoint sensitivity method), and diffusion models (denoising score matching).\n\nFocus: reproducible ML pipelines, statistical model evaluation, and deep generative modeling.',
+      link: 'https://github.com/EliasSf73/Machine-Learning-Generative-Modeling',
+    },
+    {
       id: 3,
       title: 'Exploring Neural Dynamics and Information Processing',
       description: 'Mini-projects exploring fundamental concepts in computational and theoretical neuroscience. Topics include: simulating neuron models (Izhikevich, LIF, Hodgkin-Huxley), analyzing neural coding (spike trains, Poisson processes, information entropy), investigating synaptic plasticity (STDP), and understanding neural receptive fields and coupled neuron dynamics.\n\nFocus: neural modeling, information theory, and computational analysis of brain function.',
