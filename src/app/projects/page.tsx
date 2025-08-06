@@ -4,9 +4,15 @@ import Link from 'next/link';
 const Projects = () => {
   const projects = [
     {
+      id: 2,
+      title: 'Modeling Biological Systems with Math & Data',
+      description: 'Mini-projects on simulating and analyzing biological systems using differential equations, statistical modeling, and data science.\n\nTopics include:\n\n• ODE models of gene regulation, neuronal dynamics (Hodgkin–Huxley), and calcium signaling\n• Parameter estimation and optimization (e.g. Lotka–Volterra dynamics)\n• Statistical analysis of clinical data (ANOVA, survival models)\n• Dimensionality reduction & clustering of single-cell RNA-seq data (PCA, t-SNE, UMAP)\n\n🧠 Focus: mathematical modeling, dynamical systems, and biological data analysis',
+      link: 'https://github.com/EliasSf73/Mathematical-modeling-project',
+    },
+    {
       id: 1,
       title: 'Modeling Stress, Delay & Noise in Gamma-band Oscillations',
-      description: 'I used a simplified Wilson–Cowan excitatory–inhibitory neural circuit to show how three factors—tonic excitatory drive (“stress”), synaptic feedback delay, and background noise—tune cortical rhythms. After validating against Li et al.’s gamma‐oscillation bifurcation map, I demonstrated that increasing “stress” speeds up oscillations, adding delay shifts them from gamma to beta, and moderate noise maximizes coherence via stochastic resonance',
+      description: 'I used a simplified Wilson–Cowan excitatory–inhibitory neural circuit to show how three factors—tonic excitatory drive (“stress”), synaptic feedback delay, and background noise—tune cortical rhythms. After validating against Li et al.’s gamma‐oscillation bifurcation map, I demonstrated that increasing “stress” speeds up oscillations, adding delay shifts them from gamma to beta, and moderate noise maximizes coherence via stochastic resonance.',
       link: 'https://github.com/EliasSf73/Mathematical-modeling-project/tree/main/Modeling%20Project',
     },
     {
