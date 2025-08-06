@@ -5,9 +5,9 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'Project Alpha',
-      description: 'A brief description of Project Alpha, highlighting its key features and technologies used.',
-      link: '#', // Placeholder link
+      title: 'Modeling Stress, Delay & Noise in Gamma-band Oscillations',
+      description: 'I used a simplified Wilson–Cowan excitatory–inhibitory neural circuit to show how three factors—tonic excitatory drive (“stress”), synaptic feedback delay, and background noise—tune cortical rhythms. After validating against Li et al.’s gamma‐oscillation bifurcation map, I demonstrated that increasing “stress” speeds up oscillations, adding delay shifts them from gamma to beta, and moderate noise maximizes coherence via stochastic resonance',
+      link: 'https://github.com/EliasSf73/Mathematical-modeling-project/tree/main/Modeling%20Project',
     },
     {
       id: 2,
