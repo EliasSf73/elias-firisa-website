@@ -4,6 +4,12 @@ import Link from 'next/link';
 const Projects = () => {
   const projects = [
     {
+      id: 3,
+      title: 'Exploring Neural Dynamics and Information Processing',
+      description: 'Mini-projects exploring fundamental concepts in computational and theoretical neuroscience. Topics include: simulating neuron models (Izhikevich, LIF, Hodgkin-Huxley), analyzing neural coding (spike trains, Poisson processes, information entropy), investigating synaptic plasticity (STDP), and understanding neural receptive fields and coupled neuron dynamics. Focus: neural modeling, information theory, and computational analysis of brain function.',
+      link: 'https://github.com/EliasSf73/computational-neuroscience-mini-projects',
+    },
+    {
       id: 2,
       title: 'Modeling Biological Systems with Math & Data',
       description: 'Mini-projects on simulating and analyzing biological systems using differential equations, statistical modeling, and data science. Topics include: ODE models of gene regulation, neuronal dynamics (Hodgkin–Huxley), and calcium signaling, parameter estimation and optimization (e.g. Lotka–Volterra dynamics), statistical analysis of clinical data (ANOVA, survival models), and dimensionality reduction & clustering of single-cell RNA-seq data (PCA, t-SNE, UMAP). Focus: mathematical modeling, dynamical systems, and biological data analysis',
