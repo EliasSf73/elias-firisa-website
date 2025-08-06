@@ -6,7 +6,7 @@ const Projects = () => {
     {
       id: 2,
       title: 'Modeling Biological Systems with Math & Data',
-      description: 'Mini-projects on simulating and analyzing biological systems using differential equations, statistical modeling, and data science.&lt;br&gt;&lt;br&gt;Topics include:&lt;br&gt;&lt;br&gt;• ODE models of gene regulation, neuronal dynamics (Hodgkin–Huxley), and calcium signaling&lt;br&gt;• Parameter estimation and optimization (e.g. Lotka–Volterra dynamics)&lt;br&gt;• Statistical analysis of clinical data (ANOVA, survival models)&lt;br&gt;• Dimensionality reduction &amp; clustering of single-cell RNA-seq data (PCA, t-SNE, UMAP)&lt;br&gt;&lt;br&gt;🧠 Focus: mathematical modeling, dynamical systems, and biological data analysis',
+      description: 'Mini-projects on simulating and analyzing biological systems using differential equations, statistical modeling, and data science. Topics include: ODE models of gene regulation, neuronal dynamics (Hodgkin–Huxley), and calcium signaling, parameter estimation and optimization (e.g. Lotka–Volterra dynamics), statistical analysis of clinical data (ANOVA, survival models), and dimensionality reduction & clustering of single-cell RNA-seq data (PCA, t-SNE, UMAP). Focus: mathematical modeling, dynamical systems, and biological data analysis',
       link: 'https://github.com/EliasSf73/Mathematical-modeling-project',
     },
     {
