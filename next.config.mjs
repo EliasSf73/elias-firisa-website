@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: '/elias_firisa_webiste',
+  basePath: '/elias-firisa-website',
   images: {
     unoptimized: true,
   },

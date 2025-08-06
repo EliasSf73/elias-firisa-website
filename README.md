@@ -1,4 +1,4 @@
-# elias_firisa_webiste
+# elias-firisa-website
 
 Elias Firisa’s Website
 
@@ -8,8 +8,8 @@ A personal website built with Next.js featuring a blog and projects showcase.
 
 The website is deployed to both Vercel and GitHub Pages:
 
-*   **Vercel:** [https://elias-firisa-webiste.vercel.app](https://elias-firisa-webiste.vercel.app)
-*   **GitHub Pages:** [https://EliasSf73.github.io/elias_firisa_webiste](https://EliasSf73.github.io/elias_firisa_webiste)
+*   **Vercel:** [https://elias-firisa-website.vercel.app](https://elias-firisa-website.vercel.app)
+*   **GitHub Pages:** [https://EliasSf73.github.io/elias-firisa-website](https://EliasSf73.github.io/elias-firisa-website)
 
 ## Development
 
