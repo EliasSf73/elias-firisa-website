@@ -22,7 +22,7 @@ export default function Home() {
             where I explore how the brain processes information and how we can apply these principles to build more intelligent systems.
           </p>
           <p>
-            This website serves as a platform to showcase my projects, share valuable resources, and publish mathematically rigorous blogs on topics within my field of study.
+            This website serves as a platform to showcase my projects, share valuable resources, and post mathematically rigorous blogs on topics within my field of study.
           </p>
           <div className="relative p-6 my-6 bg-gray-50 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300">
             <div className="absolute -top-3 -left-3 w-6 h-6 bg-blue-100 rounded-full"></div>
