@@ -12,13 +12,13 @@ const Projects = () => {
     {
       id: 2,
       title: 'Modeling Biological Systems with Math & Data',
-      description: 'Mini-projects on simulating and analyzing biological systems using differential equations, statistical modeling, and data science. Topics include: ODE models of gene regulation, neuronal dynamics (Hodgkin–Huxley), and calcium signaling, parameter estimation and optimization (e.g. Lotka–Volterra dynamics), statistical analysis of clinical data (ANOVA, survival models), and dimensionality reduction & clustering of single-cell RNA-seq data (PCA, t-SNE, UMAP).\n\nFocus: mathematical modeling, dynamical systems, and biological data analysis',
+      description: 'Mini-projects on simulating and analyzing biological systems using differential equations, statistical modeling, and data science. Topics include: ODE models of gene regulation, neuronal dynamics (Hodgkin–Huxley), and calcium signaling, parameter estimation and optimization (e.g. Lotka–Volterra dynamics), statistical analysis of clinical data (ANOVA, survival models), and dimensionality reduction & clustering of single-cell RNA-seq data (PCA, t-SNE, UMAP).\n\nFocus: mathematical modeling, dynamical systems, and biological data analysis.',
       link: 'https://github.com/EliasSf73/Mathematical-modeling-project',
     },
     {
       id: 1,
       title: 'Modeling Stress, Delay & Noise in Gamma-band Oscillations',
-      description: 'I used a simplified Wilson–Cowan excitatory–inhibitory neural circuit to show how three factors—tonic excitatory drive ("stress"), synaptic feedback delay, and background noise—tune cortical rhythms. After validating against Li et al.’s gamma‐oscillation bifurcation map, I demonstrated that increasing "stress" speeds up oscillations, adding delay shifts them from gamma to beta, and moderate noise maximizes coherence via stochastic resonance.\n\nFocus: mathematical modeling of neural dynamics and stochastic processes',
+      description: 'I used a simplified Wilson–Cowan excitatory–inhibitory neural circuit to show how three factors—tonic excitatory drive ("stress"), synaptic feedback delay, and background noise—tune cortical rhythms. After validating against Li et al.’s gamma‐oscillation bifurcation map, I demonstrated that increasing "stress" speeds up oscillations, adding delay shifts them from gamma to beta, and moderate noise maximizes coherence via stochastic resonance.\n\nFocus: mathematical modeling of neural dynamics and stochastic processes.',
       link: 'https://github.com/EliasSf73/Mathematical-modeling-project/tree/main/Modeling%20Project',
     },
   ];
@@ -31,12 +31,14 @@ const Projects = () => {
           <div key={project.id} className="bg-gray-800 text-white rounded-lg shadow-lg overflow-hidden">
             <div className="p-6">
               <h5 className="text-2xl font-semibold mb-2">{project.title}</h5>
-              <p className="text-gray-400 mb-4">{project.description}</p>
+              <p className="text-gray-400 mb-4 whitespace-pre-line">
+                {project.description}
+              </p>
               <div className="flex items-center justify-between">
                 <Link href={project.link} className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                   Project Link
                 </Link>
-                <p className="text-sm text-gray-400">(Code & paper-like report included)</p>
+                <p className="text-sm text-gray-400">(Code & results report included)</p>
               </div>
             </div>
           </div>
