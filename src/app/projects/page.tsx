@@ -18,20 +18,8 @@ const Projects = () => {
     {
       id: 1,
       title: 'Modeling Stress, Delay & Noise in Gamma-band Oscillations',
-      description: 'I used a simplified Wilson–Cowan excitatory–inhibitory neural circuit to show how three factors—tonic excitatory drive (“stress”), synaptic feedback delay, and background noise—tune cortical rhythms. After validating against Li et al.’s gamma‐oscillation bifurcation map, I demonstrated that increasing “stress” speeds up oscillations, adding delay shifts them from gamma to beta, and moderate noise maximizes coherence via stochastic resonance.\n\nFocus: mathematical modeling of neural dynamics and stochastic processes'
+      description: 'I used a simplified Wilson–Cowan excitatory–inhibitory neural circuit to show how three factors—tonic excitatory drive ("stress"), synaptic feedback delay, and background noise—tune cortical rhythms. After validating against Li et al.’s gamma‐oscillation bifurcation map, I demonstrated that increasing "stress" speeds up oscillations, adding delay shifts them from gamma to beta, and moderate noise maximizes coherence via stochastic resonance.\n\nFocus: mathematical modeling of neural dynamics and stochastic processes',
       link: 'https://github.com/EliasSf73/Mathematical-modeling-project/tree/main/Modeling%20Project',
-    },
-    {
-      id: 2,
-      title: 'Project Beta',
-      description: 'This project involved [specific details], demonstrating [relevant skills].',
-      link: '#', // Placeholder link
-    },
-    {
-      id: 3,
-      title: 'Project Gamma',
-      description: 'An in-depth look at Project Gamma, focusing on the challenges faced and solutions implemented.',
-      link: '#', // Placeholder link
     },
   ];
 
