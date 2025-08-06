@@ -30,23 +30,27 @@ const Projects = () => {
   ];
 
   return (
-    <div className="container mx-auto mt-5 p-4 min-h-screen">
-      <h1 className="text-center text-4xl font-bold mb-6">My Projects</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="container mx-auto mt-16 px-4 sm:px-6 lg:px-8 min-h-screen">
+      <h1 className="text-center text-4xl font-bold mb-8 tracking-tight text-gray-100">My Projects</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project) => (
-          <div key={project.id} className="bg-gray-800 text-white rounded-lg shadow-lg overflow-hidden">
+          <div key={project.id} className="bg-gray-800 text-white rounded-xl shadow-xl overflow-hidden border border-gray-700 hover:border-gray-600 transition-all duration-300">
             <div className="p-6">
-              <div className="flex items-center mb-2">
-                <span className="text-gray-400 mr-2">{project.id}. </span>
-                <h5 className="text-2xl font-semibold">{project.title}</h5>
+              <div className="mb-4">
+                <span className="block text-gray-400 text-sm font-medium">{project.id}.</span>
+                <h5 className="text-2xl font-semibold text-gray-100 tracking-tight">{project.title}</h5>
               </div>
-              <p className="text-gray-400 mb-4 whitespace-pre-line">
+              <p className="text-gray-400 text-base leading-relaxed whitespace-pre-line mb-6">
                 {project.description}
               </p>
-              <div className="flex items-center justify-between mt-4">
-                <Link href={project.link} className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                  Project Link
+              <div className="flex items-center justify-between mt-6">
+                <Link href={project.link} className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200">
+                  <svg className="mr-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                  View Project
                 </Link>
+                <p className="text-sm text-gray-400 mt-1">(Code & results report included)</p>
                 <p className="text-sm text-gray-400">(Code & results report included)</p>
               </div>
             </div>
