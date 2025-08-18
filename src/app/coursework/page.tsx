@@ -1,105 +1,83 @@
 import React from 'react';
 
-const coursework = [
-  // Completed Courses - A curated list from the transcript, prioritized by relevance
-  {
-    id: 3, number: 'MAS 10009', title: 'Introduction to Linear Algebra', status: 'completed'
-  },
-  {
-    id: 4, number: 'CS 30706', title: 'Machine Learning', status: 'completed'
-  },
-  {
-    id: 5, number: 'IE 20041', title: 'Engineering Statistics I', status: 'completed'
-  },
-  {
-    id: 6, number: 'IE 30043', title: 'Statistical Machine Learning', status: 'completed'
-  },
-  {
-    id: 7, number: 'MAS 20050', title: 'Probability and Statistics', status: 'completed'
-  },
-  {
-    id: 8, number: 'IE 20061', title: 'Introduction to Data Science for IE', status: 'completed'
-  },
-  {
-    id: 9, number: 'BCS 40041', title: 'How AI and the Brain Work', status: 'completed'
-  },
-  {
-    id: 10, number: 'EE 20002', title: 'Signals and Systems', status: 'completed'
-  },
-  {
-    id: 11, number: 'BCS 40010', title: 'Data Analysis and Modeling Lab', status: 'completed'
-  },
-  {
-    id: 12, number: 'BiS 35001', title: 'Bio-Signal Processing', status: 'completed'
-  },
-  {
-    id: 13, number: 'CS 20006', title: 'Data Structure', status: 'completed'
-  },
-  {
-    id: 14, number: 'CS 20004', title: 'Discrete Mathematics', status: 'completed'
-  },
-  {
-    id: 16, number: 'BCS 30004', title: 'Theoretical Neuroscience', status: 'completed'
-  },
-  {
-    id: 18, number: 'BCS 20002', title: 'Systems Neuroscience', status: 'completed'
-  },
-  {
-    id: 19, number: 'BCS 20021', title: 'Cognitive Neuroscience', status: 'completed'
-  },
-  {
-    id: 20, number: 'BCS 20001', title: 'Biology of Neurons', status: 'completed'
-  },
-  {
-    id: 21, number: 'BCS 30041', title: 'Methods in Brain and Cognitive Sciences', status: 'completed'
-  },
-  {
-    id: 22, number: 'CS 10001', title: 'Introduction to Programming', status: 'completed'
-  },
-  {
-    id: 23, number: 'MAS 10001', title: 'Calculus I', status: 'completed'
-  },
-  {
-    id: 24, number: 'PH 10041', title: 'General Physics I', status: 'completed'
-  },
-  {
-    id: 25, number: 'PH 10042', title: 'General Physics II', status: 'completed'
-  },
-  {
-    id: 26, number: 'AE 10000', title: 'Sky and Space', status: 'completed'
-  },
-  {
-    id: 27, number: 'BCS 30020', title: 'Laboratory in Human Brain Anatomy and Physiology', status: 'completed'
-  }
-];
-
 const CourseworkPage = () => {
-  const currentCourses = coursework.filter(course => course.status === 'current');
-  const completedCourses = coursework.filter(course => course.status === 'completed');
+  const courseCategories = [
+    {
+      name: 'Mathematics & Statistics',
+      courses: [
+        { id: 1, number: 'MAS 10009', title: 'Introduction to Linear Algebra' },
+        { id: 2, number: 'MAS 10001', title: 'Calculus I' },
+        { id: 3, number: 'MAS 20050', title: 'Probability and Statistics' },
+        { id: 4, number: 'IE 20041', title: 'Engineering Statistics I' },
+        { id: 5, number: 'IE 20032', title: 'Stochastic Models' },
+        { id: 6, number: 'BCS 30003', title: 'Statistics for BCS' },
+      ],
+    },
+    {
+      name: 'Computer Science / Data Science',
+      courses: [
+        { id: 7, number: 'CS 30706', title: 'Machine Learning' },
+        { id: 8, number: 'CS 49900', title: 'Diffusion and Flow Models' },
+        { id: 9, number: 'IE 20061', title: 'Data Science for Industrial Engineering' },
+        { id: 10, number: 'CS 20006', title: 'Data Structures' },
+        { id: 11, number: 'IE 30043', title: 'Statistical Machine Learning' },
+        { id: 12, number: 'CS 20004', title: 'Discrete Mathematics' },
+        { id: 13, number: 'CS 10001', title: 'Introduction to Programming' },
+      ],
+    },
+    {
+      name: 'Neuroscience / Brain & Cognitive Sciences',
+      courses: [
+        { id: 14, number: 'BCS 40041', title: 'How AI and the Brain Work' },
+        { id: 15, number: 'BCS 40010', title: 'Data Analysis and Modeling Lab' },
+        { id: 16, number: 'BiS 35001', title: 'Bio-Signal Processing' },
+        { id: 17, number: 'BCS 30004', title: 'Theoretical Neuroscience' },
+        { id: 18, number: 'BCS 20002', title: 'Systems Neuroscience' },
+        { id: 19, number: 'BCS 20021', title: 'Cognitive Neuroscience' },
+        { id: 20, number: 'BCS 20001', title: 'Biology of Neurons' },
+        { id: 21, number: 'BCS 30041', title: 'Methods in Brain and Cognitive Sciences' },
+        { id: 22, number: 'BCS 30020', title: 'Laboratory in Human Brain Anatomy and Physiology' },
+        { id: 23, number: 'BCS 20000', title: 'Laboratory in Animal Brain Anatomy and Physiology' },
+      ],
+    },
+    {
+      name: 'Electrical Engineering / Physics / Aerospace',
+      courses: [
+        { id: 24, number: 'EE 20002', title: 'Signals and Systems' },
+        { id: 25, number: 'PH 10041', title: 'General Physics I' },
+        { id: 26, number: 'PH 10042', title: 'General Physics II' },
+        { id: 27, number: 'AE 10000', title: 'Sky and Space' },
+      ],
+    },
+  ];
 
   return (
     <div className="container mx-auto mt-5 p-4 min-h-screen">
-      <h1 className="text-center text-4xl font-bold mb-12">Coursework</h1>
-
-      {/* Current Courses Section */}
-      <section className="mb-16">
-        <h2 className="text-3xl font-bold mb-6 border-b-2 border-gray-700 pb-2">Current Courses: Fall 2025</h2>
-        <div>
-          <p className="text-gray-400 italic">Courses for Fall 2025 will be updated here soon.</p>
-        </div>
-      </section>
-
-      {/* Completed Courses Section */}
-      <section>
-        <h2 className="text-3xl font-bold mb-6 border-b-2 border-gray-700 pb-2">Completed Courses: Spring 2022- Spring 2025</h2>
-        <div className="grid grid-cols-2 gap-4">
-          {completedCourses.map(course => (
-            <div key={course.id} className="bg-gray-800 text-white rounded-lg shadow-md p-4">
-              <p><span className="font-semibold">{course.number}:</span> {course.title}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      <h1 className="text-center text-4xl font-bold mb-12">Courses (Spring 2022 – Current)</h1>
+      
+      <div className="space-y-12">
+        {courseCategories.map((category, index) => (
+          <section key={index} className="mb-8">
+            <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">
+              {category.name}
+            </h2>
+            <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {category.courses.map((course) => (
+                <li 
+                  key={course.id}
+                  className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow duration-200"
+                >
+                  <p className="text-gray-800 dark:text-gray-200">
+                    <span className="font-mono text-sm text-blue-600 dark:text-blue-400">{course.number}</span>
+                    <span>: </span>
+                    <span>{course.title}</span>
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
+      </div>
     </div>
   );
 };
