@@ -11,6 +11,8 @@ const CourseworkPage = () => {
         { id: 4, number: 'IE 20041', title: 'Engineering Statistics I' },
         { id: 5, number: 'IE 20032', title: 'Stochastic Models' },
         { id: 6, number: 'BCS 30003', title: 'Statistics for BCS' },
+        { id: 12, number: 'CS 20004', title: 'Discrete Mathematics' },
+        { id: 11, number: 'IE 30043', title: 'Statistical Machine Learning' },
       ],
     },
     {
@@ -20,17 +22,14 @@ const CourseworkPage = () => {
         { id: 8, number: 'CS 49900', title: 'Diffusion and Flow Models' },
         { id: 9, number: 'IE 20061', title: 'Data Science for Industrial Engineering' },
         { id: 10, number: 'CS 20006', title: 'Data Structures' },
-        { id: 11, number: 'IE 30043', title: 'Statistical Machine Learning' },
-        { id: 12, number: 'CS 20004', title: 'Discrete Mathematics' },
         { id: 13, number: 'CS 10001', title: 'Introduction to Programming' },
+        { id: 15, number: 'BCS 40010', title: 'Data Analysis and Modeling Lab' },
       ],
     },
     {
       name: 'Neuroscience / Brain & Cognitive Sciences',
       courses: [
         { id: 14, number: 'BCS 40041', title: 'How AI and the Brain Work' },
-        { id: 15, number: 'BCS 40010', title: 'Data Analysis and Modeling Lab' },
-        { id: 16, number: 'BiS 35001', title: 'Bio-Signal Processing' },
         { id: 17, number: 'BCS 30004', title: 'Theoretical Neuroscience' },
         { id: 18, number: 'BCS 20002', title: 'Systems Neuroscience' },
         { id: 19, number: 'BCS 20021', title: 'Cognitive Neuroscience' },
@@ -41,12 +40,13 @@ const CourseworkPage = () => {
       ],
     },
     {
-      name: 'Electrical Engineering / Physics / Aerospace',
+      name: 'Electrical Engineering and Others',
       courses: [
         { id: 24, number: 'EE 20002', title: 'Signals and Systems' },
         { id: 25, number: 'PH 10041', title: 'General Physics I' },
         { id: 26, number: 'PH 10042', title: 'General Physics II' },
         { id: 27, number: 'AE 10000', title: 'Sky and Space' },
+        { id: 16, number: 'BiS 35001', title: 'Bio-Signal Processing' },
       ],
     },
   ];
