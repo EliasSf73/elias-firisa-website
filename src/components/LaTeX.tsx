@@ -1,7 +1,7 @@
+// Server component for static export - no 'use client'
 
 import React from 'react';
 import katex from 'katex';
-import 'katex/dist/katex.min.css';
 
 interface LaTeXProps {
   math: string;
@@ -9,20 +9,22 @@ interface LaTeXProps {
 }
 
 export const LaTeX: React.FC<LaTeXProps> = ({ math, displayMode = false }) => {
+  let html = '';
   try {
-    const html = katex.renderToString(math, {
+    html = katex.renderToString(math, {
       displayMode,
       throwOnError: false,
+      trust: true,
+      strict: false,
+      output: 'html', // Fix for duplicate rendering (suppresses MathML/text)
     });
-    
-    if (displayMode) {
-      return <div dangerouslySetInnerHTML={{ __html: html }} />;
-    } else {
-      return <span className="inline-block mx-1" dangerouslySetInnerHTML={{ __html: html }} />;
-    }
-
   } catch (error) {
     console.error('Error rendering LaTeX:', error);
-    return <span className="text-red-500">Error rendering equation</span>;
+    return <span style={{ color: 'red' }}>Error rendering equation</span>;
   }
+
+  if (displayMode) {
+    return <div className="katex-display-container" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: html }} />;
+  }
+  return <span className="katex-inline" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: html }} />;
 };

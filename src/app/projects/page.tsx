@@ -1,74 +1,76 @@
-import React from 'react';
-import Link from 'next/link';
+import Link from "next/link";
+import { featuredProjects, projectArchive } from "@/data/site";
 
 const Projects = () => {
-  const projects = [
-    {
-      id: 1,
-      title: 'Real-Time Object Counting (YOLOv8 + OpenCV)',
-      description: 'Turn any image, video, YouTube link, or webcam into live counts. Detects 80+ common objects (COCO) and overlays clean boxes plus per-class totals. One tidy CLI runs everything; the pipeline (sources → model → sinks) is modular and well-tested, so adding new inputs or post-processing is painless. Optimized for CPU on macOS, with optional MPS/CUDA.',
-      focus: 'Focus: fast, reliable counting · on-frame analytics · reproducible CLI',
-      link: 'https://github.com/EliasSf73/Computer-Vision-Project',
-    },
-    {
-      id: 2,
-      title: 'Machine Learning & Generative Modeling Workflows',
-      description: 'Mini-projects on building, evaluating, and understanding machine learning and generative models through end-to-end pipelines. Topics include: train/validation/test workflows over multiple distributions and split ratios (with bias–variance and regularization analysis), logistic regression (binary cross-entropy, gradient descent), feed-forward neural networks (forward/backward pass), neural ODEs (adjoint sensitivity method), and diffusion models (denoising score matching).',
-      focus: 'Focus: reproducible ML pipelines, statistical model evaluation, and deep generative modeling.',
-      link: 'https://github.com/EliasSf73/Machine-Learning-Generative-Modeling',
-    },
-    {
-      id: 3,
-      title: 'Modeling Biological Systems with Math & Data',
-      description: 'Mini-projects on simulating and analyzing biological systems using differential equations, statistical modeling, and data science. Topics include: ODE models of gene regulation, neuronal dynamics (Hodgkin–Huxley), and calcium signaling, parameter estimation and optimization (e.g. Lotka–Volterra dynamics), statistical analysis of clinical data (ANOVA, survival models), and dimensionality reduction & clustering of single-cell RNA-seq data (PCA, t-SNE, UMAP).',
-      focus: 'Focus: mathematical modeling, dynamical systems, and biological data analysis.',
-      link: 'https://github.com/EliasSf73/Mathematical-modeling-project',
-    },
-    {
-      id: 4,
-      title: 'Exploring Neural Dynamics and Information Processing',
-      description: 'Mini-projects exploring fundamental concepts in computational and theoretical neuroscience. Topics include: simulating neuron models (Izhikevich, LIF, Hodgkin-Huxley), analyzing neural coding (spike trains, Poisson processes, information entropy), investigating synaptic plasticity (STDP), and understanding neural receptive fields and coupled neuron dynamics.',
-      focus: 'Focus: neural modeling, information theory, and computational analysis of brain function.',
-      link: 'https://github.com/EliasSf73/computational-neuroscience-mini-projects',
-    },
-    {
-      id: 5,
-      title: 'Modeling Stress, Delay & Noise in Gamma-band Oscillations',
-      description: 'I used a simplified Wilson–Cowan excitatory–inhibitory neural circuit to show how three factors—tonic excitatory drive ("stress"), synaptic feedback delay, and background noise—tune cortical rhythms. After validating against Li et al.s gamma-oscillation bifurcation map, I demonstrated that increasing "stress" speeds up oscillations, adding delay shifts them from gamma to beta, and moderate noise maximizes coherence via stochastic resonance.',
-      focus: 'Focus: mathematical modeling of neural dynamics and stochastic processes.',
-      link: 'https://github.com/EliasSf73/Mathematical-modeling-project/tree/main/Modeling%20Project',
-    },
-  ].sort((a, b) => a.id - b.id);
-
   return (
-    <div className="container mx-auto mt-5 p-4 min-h-screen">
-      <h1 className="text-center text-4xl font-bold mb-8">My Projects</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-fr">
-        {projects.map((project) => (
-          <div key={project.id} className="bg-gray-800 text-white rounded-lg shadow-lg flex flex-col overflow-hidden h-full">
-            <div className="p-6 flex flex-col flex-grow">
-              <div className="flex items-baseline mb-3">
-                <span className="text-2xl font-semibold mr-3 text-gray-400">{project.id}.</span>
-                <h5 className="text-2xl font-semibold">{project.title}</h5>
-              </div>
-              <div className="flex-grow">
-                <p className="text-gray-400 mb-4 whitespace-pre-line">
-                  {project.description}
+    <div className="min-h-screen pb-14 pt-10 text-slate-900">
+      <section className="max-w-4xl">
+        <h1 className="text-5xl font-display text-slate-900 md:text-6xl">
+          Things I have built
+        </h1>
+        <p className="mt-6 max-w-3xl text-lg text-slate-700">
+          Code that actually runs. Most of these started as coursework or side projects
+          and turned into something worth sharing.
+        </p>
+      </section>
+
+      <section className="mt-16">
+        <div className="space-y-12">
+          {featuredProjects.map((project) => (
+            <article
+              key={project.title}
+              className="grid gap-6 border-t border-slate-300/70 pt-8 md:grid-cols-[220px_minmax(0,1fr)]"
+            >
+              <div className="space-y-3">
+                <p className="text-xs uppercase tracking-[0.2em] text-slate-500">{project.category}</p>
+                <p className="text-xs uppercase tracking-[0.16em] text-slate-500">
+                  {project.tags.join(" · ")}
                 </p>
-                <p className="text-gray-400 mt-4 italic">
-                  {project.focus}
-                </p>
               </div>
-              <div className="mt-auto pt-4">
-                <Link href={project.link} target="_blank" rel="noopener noreferrer" className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors duration-300">
-                  Project Link
+              <div className="max-w-3xl">
+                <h2 className="text-3xl font-display text-slate-900">{project.title}</h2>
+                <p className="mt-4 text-base text-slate-700">{project.summary}</p>
+                <p className="mt-4 text-sm text-slate-600">{project.detail}</p>
+                <Link
+                  href={project.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex text-sm font-semibold text-slate-800 underline decoration-slate-400 underline-offset-4 transition hover:text-slate-950"
+                >
+                  Open repository
                 </Link>
-                <p className="text-sm text-gray-500 mt-2">(Code & results report included)</p>
               </div>
-            </div>
-          </div>
-        ))}
-      </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-20">
+        <div className="max-w-4xl">
+          <h2 className="text-4xl font-display text-slate-900">More explorations</h2>
+        </div>
+        <div className="mt-8 grid gap-10 xl:grid-cols-2">
+          {projectArchive.map((project) => (
+            <article key={project.title} className="border-t border-slate-300/60 pt-6">
+              <p className="text-xs uppercase tracking-[0.2em] text-slate-500">{project.category}</p>
+              <h3 className="mt-3 text-2xl font-display text-slate-900">{project.title}</h3>
+              <p className="mt-4 text-sm text-slate-700">{project.summary}</p>
+              <p className="mt-3 text-sm text-slate-600">{project.detail}</p>
+              <p className="mt-4 text-xs uppercase tracking-[0.16em] text-slate-500">
+                {project.tags.join(" · ")}
+              </p>
+              <Link
+                href={project.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 inline-flex text-sm font-semibold text-slate-800 underline decoration-slate-400 underline-offset-4 transition hover:text-slate-950"
+              >
+                Open repository
+              </Link>
+            </article>
+          ))}
+        </div>
+      </section>
     </div>
   );
 };

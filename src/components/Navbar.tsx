@@ -1,52 +1,67 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { FC } from 'react';
-import type { CSSProperties } from 'react';
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-const Navbar: FC = () => {
-  const navStyle: CSSProperties = {
-    backgroundColor: '#ffffff',
-    boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-    padding: '1rem'
-  };
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/projects", label: "Projects" },
+  { href: "/blog", label: "Writing" },
+  { href: "/docs/Elias_CV_Nov26.pdf", label: "CV", external: true },
+];
 
-  const containerStyle: CSSProperties = {
-    maxWidth: '1200px',
-    margin: '0 auto',
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    height: '64px'
-  };
+const Navbar = () => {
+  const pathname = usePathname();
 
-  const linkStyle: CSSProperties = {
-    color: '#666',
-    textDecoration: 'none',
-    padding: '0.5rem 1rem',
-    borderRadius: '4px',
-    fontSize: '0.9rem',
-    fontWeight: '500',
-    transition: 'color 0.2s ease'
-  };
+  const isActive = (href: string) => {
+    if (href === "/") {
+      return pathname === "/";
+    }
 
-  const logoStyle: CSSProperties = {
-    fontSize: '1.5rem',
-    fontWeight: 'bold',
-    color: '#2c3e50'
+    return pathname.startsWith(href);
   };
 
   return (
-    <nav style={navStyle}>
-      <div style={containerStyle}>
-        <Link href="/" style={logoStyle}>Elias Firisa</Link>
-        <div style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
-          <Link href="/" style={linkStyle}>Home</Link>
-          <Link href="/projects" style={linkStyle}>Projects</Link>
-          <Link href="/coursework" style={linkStyle}>Coursework</Link>
-          <Link href="/blog" style={linkStyle}>Blog</Link>
-          <Link href="/resources" style={linkStyle}>Resources</Link>
-          <a href="/elias-firisa-website/docs/Resume_Elias_Firisa.pdf" target="_blank" rel="noopener noreferrer" style={linkStyle}>CV</a>
+    <nav className="sticky top-0 z-50 bg-[rgba(251,248,242,0.88)] backdrop-blur-md">
+      <div className="border-b border-slate-300/70 py-5">
+        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <div className="flex items-center gap-4">
+            <Image
+              src="/images/profilepic.jpg"
+              alt="Elias Firisa"
+              width={68}
+              height={68}
+              className="rounded-full object-cover ring-2 ring-slate-200/80"
+              style={{ width: 68, height: 68 }}
+            />
+            <Link href="/" className="font-display text-2xl tracking-tight text-slate-900 sm:text-3xl">
+              Elias Firisa
+            </Link>
+          </div>
+          <ul className="flex flex-wrap items-center gap-y-3 text-[0.98rem] font-medium text-slate-600">
+            {links.map((link, index) => (
+              <li key={link.href} className="flex items-center">
+                <Link
+                  href={link.href}
+                  target={link.external ? "_blank" : undefined}
+                  rel={link.external ? "noopener noreferrer" : undefined}
+                  className={`transition ${
+                    !link.external && isActive(link.href)
+                      ? "text-slate-900 underline decoration-slate-400 underline-offset-[0.45rem]"
+                      : "text-slate-600 hover:text-slate-900"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+                {index < links.length - 1 ? (
+                  <span aria-hidden="true" className="px-4 text-slate-300">
+                    /
+                  </span>
+                ) : null}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </nav>

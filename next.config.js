@@ -1,12 +1,14 @@
 /** @type {import('next').NextConfig} */
+const isProd = process.env.NODE_ENV === 'production';
+
 const nextConfig = {
   output: 'export',
   images: {
     unoptimized: true,
   },
-  basePath: '/elias-firisa-website',
+  basePath: isProd ? '/elias-firisa-website' : '',
   trailingSlash: true,
-  assetPrefix: '/elias-firisa-website/',
+  assetPrefix: isProd ? '/elias-firisa-website/' : '',
 };
 
-module.exports = nextConfig
+module.exports = nextConfig;
