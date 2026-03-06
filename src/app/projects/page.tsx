@@ -30,7 +30,7 @@ const Projects = () => {
               <div className="max-w-3xl">
                 <h2 className="text-3xl font-display text-slate-900">{project.title}</h2>
                 <p className="mt-4 text-base text-slate-700">{project.summary}</p>
-                <p className="mt-4 text-sm text-slate-600">{project.detail}</p>
+                <p className="mt-3 text-base text-slate-600">{project.detail}</p>
                 <Link
                   href={project.href}
                   target="_blank"
@@ -54,8 +54,8 @@ const Projects = () => {
             <article key={project.title} className="border-t border-slate-300/60 pt-6">
               <p className="text-xs uppercase tracking-[0.2em] text-slate-500">{project.category}</p>
               <h3 className="mt-3 text-2xl font-display text-slate-900">{project.title}</h3>
-              <p className="mt-4 text-sm text-slate-700">{project.summary}</p>
-              <p className="mt-3 text-sm text-slate-600">{project.detail}</p>
+              <p className="mt-4 text-base text-slate-700">{project.summary}</p>
+              <p className="mt-3 text-base text-slate-600">{project.detail}</p>
               <p className="mt-4 text-xs uppercase tracking-[0.16em] text-slate-500">
                 {project.tags.join(" · ")}
               </p>

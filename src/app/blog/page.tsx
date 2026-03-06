@@ -5,8 +5,7 @@ const Blog = () => {
   return (
     <div className="min-h-screen pb-14 pt-10 text-slate-900">
       <section className="max-w-4xl">
-        <p className="text-sm uppercase tracking-[0.24em] text-slate-500">Writing</p>
-        <h1 className="mt-4 text-5xl font-display text-slate-900 md:text-6xl">
+        <h1 className="text-5xl font-display text-slate-900 md:text-6xl">
           Writing
         </h1>
         <p className="mt-6 max-w-3xl text-lg text-slate-700">
@@ -22,7 +21,7 @@ const Blog = () => {
               <p className="text-xs uppercase tracking-[0.16em] text-slate-500">{post.date}</p>
             </div>
             <h2 className="mt-4 text-3xl font-display text-slate-900">{post.title}</h2>
-            <p className="mt-4 max-w-2xl text-sm text-slate-700">{post.summary}</p>
+            <p className="mt-4 max-w-2xl text-base text-slate-700">{post.summary}</p>
             <Link
               href={post.href}
               className="mt-5 inline-flex text-sm font-semibold text-slate-800 underline decoration-slate-400 underline-offset-4 transition hover:text-slate-950"
