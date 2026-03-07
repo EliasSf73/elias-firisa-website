@@ -1,8 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+
+const basePath = process.env.NODE_ENV === "production" ? "/elias-firisa-website" : "";
 
 const links = [
   { href: "/", label: "Home" },
@@ -27,8 +28,8 @@ const Navbar = () => {
       <div className="border-b border-slate-300/70 py-5">
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div className="flex items-center gap-4">
-            <Image
-              src="/images/profilepic.jpg"
+            <img
+              src={`${basePath}/images/profilepic.jpg`}
               alt="Elias Firisa"
               width={68}
               height={68}

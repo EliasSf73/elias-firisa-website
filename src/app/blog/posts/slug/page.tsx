@@ -1,7 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { LaTeX } from '@/components/LaTeX';
+
+const basePath = process.env.NODE_ENV === "production" ? "/elias-firisa-website" : "";
 
 export const metadata = {
   title: 'Least Squares and Likelihood in Linear Regression',
@@ -100,7 +101,7 @@ const LinearRegression = () => {
         </p>
 
         <div className="text-center mt-4 mb-4">
-          <Image src="/assets/california_housing_head.png" alt="California Housing Dataset Preview" width={700} height={300} loading="eager" style={{ maxWidth: '100%', height: 'auto', borderRadius: '12px' }} />
+          <img src={`${basePath}/assets/california_housing_head.png`} alt="California Housing Dataset Preview" width={700} height={300} loading="eager" style={{ maxWidth: '100%', height: 'auto', borderRadius: '12px' }} />
         </div>
 
         <p>
@@ -141,7 +142,7 @@ const LinearRegression = () => {
         </p>
 
         <div className="text-center mt-4 mb-4">
-          <Image src="/assets/residual_plot.png" alt="Scatter plot with regression line and residuals" width={500} height={400} loading="eager" style={{ maxWidth: '100%', height: 'auto', borderRadius: '12px' }} />
+          <img src={`${basePath}/assets/residual_plot.png`} alt="Scatter plot with regression line and residuals" width={500} height={400} loading="eager" style={{ maxWidth: '100%', height: 'auto', borderRadius: '12px' }} />
         </div>
 
         <p>
