@@ -51,7 +51,7 @@ export default function Home() {
         <p className="text-sm uppercase tracking-[0.24em] text-slate-500">News</p>
         <ul className="mt-4 space-y-4">
           {newsItems.map((item, i) => (
-            <li key={i} className="flex gap-4 text-sm">
+            <li key={i} className="flex gap-4 text-base">
               <span className="shrink-0 w-28 font-semibold text-slate-500">{item.date}</span>
               <span className="text-slate-700">{item.content}</span>
             </li>
@@ -66,7 +66,7 @@ export default function Home() {
             I want to understand how learning happens, especially when data is scarce.
             Why can a child learn a concept from two examples while a neural network needs thousands?
           </p>
-          <p className="max-w-2xl text-base leading-relaxed text-slate-600">
+          <p className="max-w-2xl text-lg leading-relaxed text-slate-600">
             I work on efficient learning, disentangled representations, and generative models.
             The questions I keep coming back to: what structure in a model makes learning
             possible from less, and how do diffusion and flow-based methods learn to generate
@@ -77,7 +77,7 @@ export default function Home() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-1">
           <div>
             <p className="text-sm uppercase tracking-[0.24em] text-slate-500">Current focus</p>
-            <ul className="mt-4 space-y-3 text-sm text-slate-700">
+            <ul className="mt-4 space-y-3 text-base text-slate-700">
               <li>Efficient learning and why some representations generalize from less data</li>
               <li>Disentangled representations and the structure that makes them possible</li>
               <li>Diffusion and flow-based generative models</li>
