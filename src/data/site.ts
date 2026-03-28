@@ -102,6 +102,14 @@ export const projectArchive: Project[] = [
 
 export const writings: Writing[] = [
   {
+    title: "Probabilistic Invertibility of Rectified Flows Beyond Global Monotonicity",
+    date: "2026",
+    summary:
+      "A generic-in-time invertibility theory for rectified flow maps via a transversality argument, replacing global monotonicity with almost-sure injectivity under Gaussian initialization.",
+    href: "/blog/posts/rectflow",
+    kind: "Preprint",
+  },
+  {
     title: "Least Squares and Likelihood in Linear Regression",
     date: "June 29, 2025",
     summary:
