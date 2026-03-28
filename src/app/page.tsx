@@ -8,9 +8,11 @@ const newsItems = [
     date: "Fall 2026",
     content: (
       <>
-        Joining{" "}
+        I will join{" "}
         <a href="https://www.ualberta.ca/en/engineering/electrical-computer-engineering/index.html" target="_blank" rel="noopener noreferrer" className={newsLink}>University of Alberta</a>
-        , Electrical and Computer Engineering for MSc, co-advised by{" "}
+        , Electrical and Computer Engineering for MSc. Also a fellow at{" "}
+        <a href="https://www.amii.ca/" target="_blank" rel="noopener noreferrer" className={newsLink}>Amii</a>
+        {" "}(Alberta Machine Intelligence Institute), co-advised by{" "}
         <a href="https://btolooshams.github.io/bahar.html" target="_blank" rel="noopener noreferrer" className={newsLink}>Bahareh Tolooshams</a>
         {" "}and{" "}
         <a href="https://lazaratan.github.io/" target="_blank" rel="noopener noreferrer" className={newsLink}>Lazar Atanackovic</a>.
@@ -21,9 +23,9 @@ const newsItems = [
     date: "Summer 2024",
     content: (
       <>
-        Research internship at the{" "}
+        Research intern at the{" "}
         <a href="https://eps.leeds.ac.uk/computing" target="_blank" rel="noopener noreferrer" className={newsLink}>University of Leeds</a>
-        , advised by Professor{" "}
+        , advised by{" "}
         <a href="https://eps.leeds.ac.uk/computing/staff/548/professor-netta-cohen" target="_blank" rel="noopener noreferrer" className={newsLink}>Netta Cohen</a>.
       </>
     ),
@@ -63,14 +65,7 @@ export default function Home() {
         <div className="space-y-6">
           <p className="text-sm uppercase tracking-[0.24em] text-slate-500">About</p>
           <p className="max-w-2xl text-lg leading-relaxed text-slate-700">
-            I want to understand how learning happens, especially when data is scarce.
-            Why can a child learn a concept from two examples while a neural network needs thousands?
-          </p>
-          <p className="max-w-2xl text-lg leading-relaxed text-slate-600">
-            I work on efficient learning, disentangled representations, and generative models.
-            The questions I keep coming back to: what structure in a model makes learning
-            possible from less, and how do diffusion and flow-based methods learn to generate
-            without memorizing?
+            I study how models learn from little data. My work focuses on representation learning, disentanglement, and diffusion/flow-based generative models, asking what structure makes efficient learning possible.
           </p>
         </div>
 
@@ -78,8 +73,8 @@ export default function Home() {
           <div>
             <p className="text-sm uppercase tracking-[0.24em] text-slate-500">Current focus</p>
             <ul className="mt-4 space-y-3 text-base text-slate-700">
-              <li>Efficient learning and why some representations generalize from less data</li>
-              <li>Disentangled representations and the structure that makes them possible</li>
+              <li>Efficient learning and generalization from limited data</li>
+              <li>Disentangled representations</li>
               <li>Diffusion and flow-based generative models</li>
             </ul>
           </div>

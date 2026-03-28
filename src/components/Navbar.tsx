@@ -9,7 +9,7 @@ const links = [
   { href: "/", label: "Home" },
   { href: "/projects", label: "Projects" },
   { href: "/blog", label: "Writing" },
-  { href: "/docs/Elias_CV_Nov26.pdf", label: "CV", external: true },
+  { href: "/docs/Elias_CV.pdf", label: "CV", external: true },
 ];
 
 const Navbar = () => {
