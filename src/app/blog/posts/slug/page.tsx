@@ -2,8 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 import { LaTeX } from '@/components/LaTeX';
 
-const basePath = process.env.NODE_ENV === "production" ? "/elias-firisa-website" : "";
-
 export const metadata = {
   title: 'Least Squares and Likelihood in Linear Regression',
   description: 'A note on linear regression from least squares and maximum likelihood.',
@@ -11,7 +9,7 @@ export const metadata = {
 
 const LinearRegression = () => {
   return (
-    <article className="reading-article mx-auto max-w-4xl rounded-[30px] border border-slate-300/70 bg-[rgba(255,255,255,0.72)] px-6 py-10 shadow-[0_28px_80px_-54px_rgba(15,23,42,0.18)] backdrop-blur-xl sm:px-8 lg:px-12">
+    <article className="reading-article mx-auto max-w-4xl rounded-[30px] border border-slate-700/70 bg-[rgba(24,28,34,0.82)] px-6 py-10 shadow-[0_28px_80px_-54px_rgba(15,23,42,0.18)] backdrop-blur-xl sm:px-8 lg:px-12">
       <h1>Least Squares and Likelihood in Linear Regression</h1>
       {/* <p className="text-xl text-gray-500 mb-2">
         Connecting least squares with maximum likelihood estimation: Linear regression as both a geometric projection and a probabilistic model under Gaussian noise.
@@ -57,7 +55,7 @@ const LinearRegression = () => {
         </p>
 
         <figure className="mt-6 p-4">
-          <blockquote className="border-l-4 border-amber-300/70 pl-8 italic">
+          <blockquote className="border-l-4 border-amber-500/50 pl-8 italic">
             "All models are wrong, but some are useful."
           </blockquote>
           <figcaption className="text-right pr-4">&mdash; George E. P. Box</figcaption>
@@ -100,8 +98,39 @@ const LinearRegression = () => {
           average number of rooms, etc. The target value <LaTeX math={String.raw`y`} /> is the median house value.
         </p>
 
-        <div className="text-center mt-4 mb-4">
-          <img src={`${basePath}/assets/california_housing_head.png`} alt="California Housing Dataset Preview" width={700} height={300} loading="eager" style={{ maxWidth: '100%', height: 'auto', borderRadius: '12px' }} />
+        <div className="mt-4 mb-4 overflow-x-auto rounded-xl border border-slate-600/40">
+          <table className="w-full text-xs text-slate-300">
+            <thead>
+              <tr className="border-b border-slate-600/40 bg-slate-800/50 text-left text-slate-400">
+                <th className="px-3 py-2">MedInc</th>
+                <th className="px-3 py-2">HouseAge</th>
+                <th className="px-3 py-2">AveRooms</th>
+                <th className="px-3 py-2">AveBedrms</th>
+                <th className="px-3 py-2">Population</th>
+                <th className="px-3 py-2">AveOccup</th>
+                <th className="px-3 py-2">Latitude</th>
+                <th className="px-3 py-2">Longitude</th>
+                <th className="px-3 py-2 text-amber-400">MedHouseVal</th>
+              </tr>
+            </thead>
+            <tbody className="font-mono">
+              {[
+                [8.3252, 41, 6.98, 1.02, 322, 2.56, 37.88, -122.23, 4.526],
+                [8.3014, 21, 6.24, 0.97, 2401, 2.11, 37.86, -122.22, 3.585],
+                [7.2574, 52, 8.29, 1.07, 496, 2.80, 37.85, -122.24, 3.521],
+                [5.6431, 52, 5.82, 1.07, 558, 2.55, 37.85, -122.25, 3.413],
+                [3.8462, 52, 6.28, 1.08, 565, 2.18, 37.85, -122.25, 3.422],
+              ].map((row, i) => (
+                <tr key={i} className="border-b border-slate-700/30 hover:bg-slate-700/20">
+                  {row.map((val, j) => (
+                    <td key={j} className={`px-3 py-1.5 ${j === row.length - 1 ? 'text-amber-400 font-semibold' : ''}`}>
+                      {typeof val === 'number' ? val.toFixed(val % 1 === 0 ? 0 : 2) : val}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
 
         <p>
@@ -141,8 +170,51 @@ const LinearRegression = () => {
           the distance between the true value and the predicted value for each data point.
         </p>
 
-        <div className="text-center mt-4 mb-4">
-          <img src={`${basePath}/assets/residual_plot.png`} alt="Scatter plot with regression line and residuals" width={500} height={400} loading="eager" style={{ maxWidth: '100%', height: 'auto', borderRadius: '12px' }} />
+        <div className="mt-4 mb-4 rounded-xl border border-slate-600/40 bg-slate-800/30 p-4">
+          <svg viewBox="0 0 500 340" className="w-full" style={{ maxHeight: '380px' }}>
+            {/* Axes */}
+            <line x1="60" y1="290" x2="480" y2="290" stroke="#475569" strokeWidth="1" />
+            <line x1="60" y1="290" x2="60" y2="20" stroke="#475569" strokeWidth="1" />
+            {/* Axis labels */}
+            <text x="270" y="330" textAnchor="middle" fill="#94a3b8" fontSize="12" fontFamily="inherit">Average Rooms</text>
+            <text x="18" y="155" textAnchor="middle" fill="#94a3b8" fontSize="12" fontFamily="inherit" transform="rotate(-90, 18, 155)">House Price</text>
+            {/* Grid lines */}
+            {[70, 130, 190, 250].map((y, i) => (
+              <line key={`g${i}`} x1="60" y1={y} x2="480" y2={y} stroke="#334155" strokeWidth="0.5" strokeDasharray="4 4" />
+            ))}
+            {/* Y-axis ticks */}
+            {[{y: 250, l: '1'}, {y: 190, l: '2'}, {y: 130, l: '3'}, {y: 70, l: '4'}].map((t, i) => (
+              <text key={`yt${i}`} x="50" y={t.y + 4} textAnchor="end" fill="#64748b" fontSize="10">{t.l}</text>
+            ))}
+            {/* X-axis ticks */}
+            {[{x: 120, l: '3'}, {x: 200, l: '5'}, {x: 280, l: '6'}, {x: 360, l: '7'}, {x: 440, l: '8'}].map((t, i) => (
+              <text key={`xt${i}`} x={t.x} y="305" textAnchor="middle" fill="#64748b" fontSize="10">{t.l}</text>
+            ))}
+            {/* Regression line */}
+            <line x1="80" y1="265" x2="460" y2="65" stroke="#f87171" strokeWidth="2" opacity="0.8" />
+            {/* Data points and residuals */}
+            {[
+              {x: 100, y: 240, py: 256}, {x: 130, y: 210, py: 242}, {x: 150, y: 260, py: 233},
+              {x: 175, y: 215, py: 222}, {x: 200, y: 180, py: 210}, {x: 210, y: 230, py: 205},
+              {x: 235, y: 170, py: 193}, {x: 250, y: 195, py: 186}, {x: 270, y: 150, py: 176},
+              {x: 290, y: 190, py: 166}, {x: 310, y: 120, py: 156}, {x: 325, y: 165, py: 149},
+              {x: 340, y: 130, py: 142}, {x: 360, y: 105, py: 132}, {x: 380, y: 145, py: 122},
+              {x: 400, y: 90, py: 112}, {x: 415, y: 130, py: 105}, {x: 435, y: 75, py: 95},
+              {x: 450, y: 110, py: 88},
+            ].map((p, i) => (
+              <g key={`p${i}`}>
+                <line x1={p.x} y1={p.y} x2={p.x} y2={p.py} stroke="#94a3b8" strokeWidth="1" strokeDasharray="3 3" opacity="0.5" />
+                <circle cx={p.x} cy={p.y} r="4" fill="#60a5fa" opacity="0.85" />
+              </g>
+            ))}
+            {/* Legend */}
+            <circle cx="90" cy="25" r="4" fill="#60a5fa" />
+            <text x="100" y="29" fill="#94a3b8" fontSize="10">Data points</text>
+            <line x1="170" y1="25" x2="190" y2="25" stroke="#f87171" strokeWidth="2" />
+            <text x="196" y="29" fill="#94a3b8" fontSize="10">Regression line</text>
+            <line x1="300" y1="25" x2="318" y2="25" stroke="#94a3b8" strokeWidth="1" strokeDasharray="3 3" />
+            <text x="324" y="29" fill="#94a3b8" fontSize="10">Residuals</text>
+          </svg>
         </div>
 
         <p>
@@ -317,7 +389,7 @@ const LinearRegression = () => {
           This is the closed-form solution to the least squares problem, derived directly from calculus and matrix algebra.
         </p>
 
-        <div className="mt-6 rounded-[24px] border border-sky-200/70 bg-sky-50/70 p-5 text-sm text-slate-700">
+        <div className="mt-6 rounded-[24px] border border-sky-700/40 bg-sky-950/40 p-5 text-sm text-slate-300">
           <strong>Matrix Derivative Reference:</strong>
           <p className="mt-2">
             The following identities were used in the derivation:
@@ -556,7 +628,7 @@ const LinearRegression = () => {
             </p>
             <hr className="my-6" />
 
-            <p className="rounded-[22px] border border-slate-200 bg-white/70 px-4 py-4 text-sm text-slate-600">
+            <p className="rounded-[22px] border border-slate-600/50 bg-slate-800/60 px-4 py-4 text-sm text-slate-300">
               This post was inspired by a lecture and exam question from the
               <strong> Machine Learning (CS376)</strong> course at KAIST, taught by {''}
               <a href="https://sites.google.com/view/npark/home?authuser=0" target="_blank" rel="noopener noreferrer">

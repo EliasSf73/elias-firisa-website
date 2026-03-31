@@ -11,7 +11,7 @@ export const metadata = {
 
 const RectFlow = () => {
   return (
-    <article className="reading-article mx-auto max-w-4xl rounded-[30px] border border-slate-300/70 bg-[rgba(255,255,255,0.72)] px-6 py-10 shadow-[0_28px_80px_-54px_rgba(15,23,42,0.18)] backdrop-blur-xl sm:px-8 lg:px-12">
+    <article className="reading-article mx-auto max-w-4xl rounded-[30px] border border-slate-700/70 bg-[rgba(24,28,34,0.82)] px-6 py-10 shadow-[0_28px_80px_-54px_rgba(15,23,42,0.18)] backdrop-blur-xl sm:px-8 lg:px-12">
       <h1>Probabilistic Invertibility of Rectified Flows Beyond Global Monotonicity</h1>
       <p className="mb-2 text-sm text-slate-600">Elias Firisa</p>
       <p className="mb-4 text-sm uppercase tracking-[0.18em] text-slate-500">2026 &middot; In preparation</p>
@@ -146,7 +146,7 @@ const RectFlow = () => {
           A collision at time <LaTeX math={String.raw`t`} /> is a pair <LaTeX math={String.raw`(x, y)`} /> with <LaTeX math={String.raw`x \neq y`} /> such that <LaTeX math={String.raw`F(t, x, y) = 0`} />.
         </p>
 
-        <div className="mt-6 rounded-[24px] border border-slate-200 bg-slate-50/70 p-5 text-sm text-slate-700">
+        <div className="mt-6 rounded-[24px] border border-slate-600/40 bg-slate-800/50 p-5 text-sm text-slate-300">
           <strong>Definition (Collision sets on compacts).</strong>{' '}
           For <LaTeX math={String.raw`R > 0`} />, let <LaTeX math={String.raw`B_R := \{x \in \mathbb{R}^d : \|x\| \le R\}`} /> and <LaTeX math={String.raw`\Delta := \{(x, x) : x \in B_R\}`} />. Define the collision slice at time <LaTeX math={String.raw`t`} /> by
           <div className="text-center mt-3 mb-1">
@@ -154,12 +154,12 @@ const RectFlow = () => {
           </div>
         </div>
 
-        <div className="mt-6 rounded-[24px] border border-slate-200 bg-slate-50/70 p-5 text-sm text-slate-700">
+        <div className="mt-6 rounded-[24px] border border-slate-600/40 bg-slate-800/50 p-5 text-sm text-slate-300">
           <strong>Assumption (Strip-wise regularity).</strong>{' '}
           For every <LaTeX math={String.raw`\varepsilon \in (0, 1/2)`} /> and <LaTeX math={String.raw`R > 0`} />, the mapping <LaTeX math={String.raw`(t, x) \mapsto H_t(x)`} /> is <LaTeX math={String.raw`C^1`} /> on <LaTeX math={String.raw`[\varepsilon, 1 - \varepsilon] \times B_R`} />.
         </div>
 
-        <div className="mt-6 rounded-[24px] border border-sky-200/70 bg-sky-50/70 p-5 text-sm text-slate-700">
+        <div className="mt-6 rounded-[24px] border border-sky-700/40 bg-sky-950/40 p-5 text-sm text-slate-300">
           <strong>Lemma (Transversality engine).</strong>{' '}
           Let <LaTeX math={String.raw`t \in (0, 1)`} /> and <LaTeX math={String.raw`x \neq y`} />. If <LaTeX math={String.raw`H_t(x) = H_t(y)`} />, then
           <div className="text-center mt-3 mb-3">
@@ -172,7 +172,7 @@ const RectFlow = () => {
           At a collision, <LaTeX math={String.raw`(1 - t)(x - y) + t(Z_1(x) - Z_1(y)) = 0`} />, hence <LaTeX math={String.raw`Z_1(x) - Z_1(y) = -(1 - t)(x - y)/t`} />. Differentiating in <LaTeX math={String.raw`t`} /> and substituting yields <LaTeX math={String.raw`-(x - y) - (1 - t)(x - y)/t = -(x - y)/t \neq 0`} />.
         </div>
 
-        <div className="mt-6 rounded-[24px] border border-amber-200/70 bg-amber-50/70 p-5 text-sm text-slate-700">
+        <div className="mt-6 rounded-[24px] border border-amber-600/40 bg-amber-950/40 p-5 text-sm text-slate-300">
           <strong>Theorem (Generic injectivity on compact sets).</strong>{' '}
           Under the strip-wise regularity assumption, for every <LaTeX math={String.raw`R > 0`} /> and for Lebesgue-almost every <LaTeX math={String.raw`t \in (0, 1)`} />,
           <div className="text-center mt-3 mb-3">
@@ -188,7 +188,7 @@ const RectFlow = () => {
           <em>Proof sketch.</em> Fix <LaTeX math={String.raw`\varepsilon \in (0, 1/2)`} /> and consider <LaTeX math={String.raw`D_{\varepsilon,R} := [\varepsilon, 1 - \varepsilon] \times ((B_R \times B_R) \setminus \Delta)`} />. By the strip-wise regularity assumption, <LaTeX math={String.raw`F`} /> is <LaTeX math={String.raw`C^1`} /> on <LaTeX math={String.raw`D_{\varepsilon,R}`} />. The transversality lemma implies that on the zero set <LaTeX math={String.raw`\{F = 0\} \subset D_{\varepsilon,R}`} />, the partial derivative <LaTeX math={String.raw`\partial_t F`} /> is nonzero. The implicit function theorem therefore implies that near each point of <LaTeX math={String.raw`\{F = 0\}`} />, the solution set can be represented as a <LaTeX math={String.raw`C^1`} /> graph <LaTeX math={String.raw`t = \tau(x, y)`} /> over <LaTeX math={String.raw`(x, y)`} />. Hence the full collision set in <LaTeX math={String.raw`(t, x, y)`} /> has <LaTeX math={String.raw`(2d + 1)`} />-dimensional Lebesgue measure zero on <LaTeX math={String.raw`D_{\varepsilon,R}`} />. Fubini&apos;s theorem yields <LaTeX math={String.raw`\mathrm{Leb}_{2d}(\mathcal{C}_{t,R}) = 0`} /> for a.e. <LaTeX math={String.raw`t \in [\varepsilon, 1 - \varepsilon]`} />. Letting <LaTeX math={String.raw`\varepsilon \downarrow 0`} /> along a sequence and intersecting full-measure sets completes the proof. Absolute continuity of <LaTeX math={String.raw`\rho_0 \times \rho_0`} /> implies the probabilistic statement.
         </div>
 
-        <div className="mt-6 rounded-[24px] border border-slate-200 bg-slate-50/70 p-5 text-sm text-slate-700">
+        <div className="mt-6 rounded-[24px] border border-slate-600/40 bg-slate-800/50 p-5 text-sm text-slate-300">
           <strong>Remark (Beyond specific targets).</strong>{' '}
           The theorem separates the transversality mechanism from distribution-specific verification of the regularity assumption. In particular, for <LaTeX math={String.raw`\rho_0 = \mathcal{N}(0, I)`} /> and general <LaTeX math={String.raw`\rho_1`} />, the intermediate density <LaTeX math={String.raw`p_t`} /> is a Gaussian convolution of a scaled version of <LaTeX math={String.raw`\rho_1`} />, suggesting strip-wise smoothness of score-based drifts under mild tail control.
         </div>
@@ -197,7 +197,7 @@ const RectFlow = () => {
       <section>
         <h2>4. Verification for Gaussian Mixture Targets</h2>
 
-        <div className="mt-4 rounded-[24px] border border-amber-200/70 bg-amber-50/70 p-5 text-sm text-slate-700">
+        <div className="mt-4 rounded-[24px] border border-amber-600/40 bg-amber-950/40 p-5 text-sm text-slate-300">
           <strong>Corollary (Gaussian mixtures satisfy strip-wise regularity).</strong>{' '}
           Let <LaTeX math={String.raw`\rho_0 = \mathcal{N}(0, I_d)`} /> and let <LaTeX math={String.raw`\rho_1`} /> be a nondegenerate Gaussian mixture. Then the strip-wise regularity assumption holds. Consequently, the generic injectivity theorem implies that for every <LaTeX math={String.raw`R > 0`} />, <LaTeX math={String.raw`\mathrm{Leb}_{2d}(\mathcal{C}_{t,R}) = 0`} /> for Lebesgue-almost every <LaTeX math={String.raw`t \in (0, 1)`} />, and <LaTeX math={String.raw`(\rho_0 \times \rho_0)(\mathcal{C}_{t,R}) = 0`} /> for almost every <LaTeX math={String.raw`t`} />.
         </div>
