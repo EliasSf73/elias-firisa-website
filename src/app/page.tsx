@@ -5,21 +5,6 @@ const newsLink = "text-slate-100 font-semibold underline decoration-slate-600 un
 
 const newsItems = [
   {
-    date: "Fall 2026",
-    content: (
-      <>
-        I will join{" "}
-        <a href="https://www.ualberta.ca/en/engineering/electrical-computer-engineering/index.html" target="_blank" rel="noopener noreferrer" className={newsLink}>University of Alberta</a>
-        , Electrical and Computer Engineering for MSc. Also a fellow at{" "}
-        <a href="https://www.amii.ca/" target="_blank" rel="noopener noreferrer" className={newsLink}>Amii</a>
-        {" "}(Alberta Machine Intelligence Institute), co-advised by{" "}
-        <a href="https://btolooshams.github.io/bahar.html" target="_blank" rel="noopener noreferrer" className={newsLink}>Bahareh Tolooshams</a>
-        {" "}and{" "}
-        <a href="https://lazaratan.github.io/" target="_blank" rel="noopener noreferrer" className={newsLink}>Lazar Atanackovic</a>.
-      </>
-    ),
-  },
-  {
     date: "Summer 2024",
     content: (
       <>
