@@ -11,10 +11,10 @@ export const metadata = {
 
 const RectFlow = () => {
   return (
-    <article className="reading-article mx-auto max-w-4xl rounded-[30px] border border-slate-700/70 bg-[rgba(24,28,34,0.82)] px-6 py-10 shadow-[0_28px_80px_-54px_rgba(15,23,42,0.18)] backdrop-blur-xl sm:px-8 lg:px-12">
+    <article className="reading-article mx-auto max-w-4xl rounded-[30px] border border-slate-700/70 bg-[var(--card)] px-6 py-10 shadow-[0_28px_80px_-54px_rgba(15,23,42,0.18)] backdrop-blur-xl sm:px-8 lg:px-12">
       <h1>Probabilistic Invertibility of Rectified Flows Beyond Global Monotonicity</h1>
       <p className="mb-2 text-sm text-slate-600">Elias Firisa</p>
-      <p className="mb-4 text-sm uppercase tracking-[0.18em] text-slate-500">2026 &middot; In preparation</p>
+      <p className="mb-4 text-sm uppercase tracking-[0.18em] text-slate-500">2026 &middot; Preprint</p>
       <p className="mb-8">
         <a
           href={`${basePath}/docs/rectflow_preprint.pdf`}

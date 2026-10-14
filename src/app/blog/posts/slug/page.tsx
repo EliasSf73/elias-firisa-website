@@ -9,7 +9,7 @@ export const metadata = {
 
 const LinearRegression = () => {
   return (
-    <article className="reading-article mx-auto max-w-4xl rounded-[30px] border border-slate-700/70 bg-[rgba(24,28,34,0.82)] px-6 py-10 shadow-[0_28px_80px_-54px_rgba(15,23,42,0.18)] backdrop-blur-xl sm:px-8 lg:px-12">
+    <article className="reading-article mx-auto max-w-4xl rounded-[30px] border border-slate-700/70 bg-[var(--card)] px-6 py-10 shadow-[0_28px_80px_-54px_rgba(15,23,42,0.18)] backdrop-blur-xl sm:px-8 lg:px-12">
       <h1>Least Squares and Likelihood in Linear Regression</h1>
       {/* <p className="text-xl text-gray-500 mb-2">
         Connecting least squares with maximum likelihood estimation: Linear regression as both a geometric projection and a probabilistic model under Gaussian noise.

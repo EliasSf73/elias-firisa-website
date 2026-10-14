@@ -14,6 +14,39 @@
   --muted: #8a919c;
   --accent: #5a9cff;
   --accent-2: #e0a84a;
+  --nav-bg: rgba(17, 20, 24, 0.9);
+  --plate: #111418;
+  --card: rgba(24, 28, 34, 0.82);
+  --article: #b0bcc8;
+  --article-muted: #9aa5b4;
+}
+
+/* Light theme: warm paper and dark ink. The slate scale is reversed, so every
+   slate-* utility in the components flips without touching the markup. */
+html[data-theme="paper"] {
+  color-scheme: light;
+  --paper: #f4f0e6;
+  --paper-2: #ebe6db;
+  --ink: #171c23;
+  --muted: #535d69;
+  --accent: #2457b8;
+  --nav-bg: rgba(244, 240, 230, 0.88);
+  --plate: #f8f5ee;
+  --card: rgba(250, 248, 242, 0.9);
+  --article: #353e49;
+  --article-muted: #4b5562;
+
+  --color-slate-50: #0e1217;
+  --color-slate-100: #171c23;
+  --color-slate-200: #242b34;
+  --color-slate-300: #353e49;
+  --color-slate-400: #535d69;
+  --color-slate-500: #6e7783;
+  --color-slate-600: #98a0a9;
+  --color-slate-700: #c9c5bb;
+  --color-slate-800: #dcd8cf;
+  --color-slate-900: #ebe6db;
+  --color-slate-950: #f4f0e6;
 }
 
 * {
@@ -62,425 +95,10 @@ a {
 }
 
 /* ═══════════════════════════════════════════
-   CONTENT FROST
-   ═══════════════════════════════════════════ */
-
-.content-frost {
-  pointer-events: none;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(1320px, 100vw);
-  z-index: -1;
-  background: linear-gradient(
-    90deg,
-    rgba(17, 20, 24, 0) 0%,
-    rgba(17, 20, 24, 0.42) 8%,
-    rgba(17, 20, 24, 0.6) 25%,
-    rgba(17, 20, 24, 0.68) 50%,
-    rgba(17, 20, 24, 0.6) 75%,
-    rgba(17, 20, 24, 0.42) 92%,
-    rgba(17, 20, 24, 0) 100%
-  );
-  backdrop-filter: blur(1.8px);
-}
-
-/* ═══════════════════════════════════════════
-   BACKGROUND SYSTEM
-   ═══════════════════════════════════════════ */
-
-.site-background {
-  pointer-events: none;
-  position: fixed;
-  inset: 0;
-  overflow: hidden;
-  z-index: 0;
-}
-
-/* ── Neural network ── */
-.neural-layer {
-  position: absolute;
-  inset: 0;
-}
-
-.neural-svg {
-  width: 100%;
-  height: 100%;
-}
-
-/* Dendrite connections */
-.dendrite {
-  stroke: rgba(80, 140, 240, 0.28);
-  stroke-width: 0.14;
-  stroke-linecap: round;
-}
-
-/* Action potential — bright dot traveling along a connection */
-.action-potential {
-  fill: rgba(100, 220, 255, 1);
-  filter: drop-shadow(0 0 2px rgba(80, 200, 255, 0.9));
-  offset-distance: 0%;
-  animation: fire-signal 4s ease-in-out infinite;
-  opacity: 0;
-}
-
-/* Synapse spark — bright flash when AP arrives at target neuron */
-.synapse-spark {
-  fill: rgba(240, 235, 230, 0);
-  filter: url(#ap-glow);
-  animation: spark-flash 4s ease-in-out infinite;
-  pointer-events: none;
-}
-
-/* Neuron membrane (outer glow ring) */
-.neuron-membrane {
-  fill: none;
-  stroke: rgba(70, 150, 255, 0.35);
-  stroke-width: 0.18;
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: membrane-pulse 4s ease-in-out infinite;
-}
-
-/* Soma (cell body) — fires bright */
-.neuron-soma {
-  fill: rgba(70, 160, 255, 0.65);
-  animation: soma-fire 5s ease-in-out infinite;
-}
-
-/* Firing ripple that expands outward */
-.fire-ripple {
-  fill: none;
-  stroke: rgba(100, 200, 255, 0.4);
-  stroke-width: 0.12;
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: ripple-expand 4.5s ease-out infinite;
-}
-
-/* ── Equation layer ── */
-.equation-layer {
-  position: absolute;
-  inset: 0;
-}
-
-.eq-col {
-  position: absolute;
-  top: -10%;
-  bottom: -10%;
-  overflow: hidden;
-}
-
-.eq-track {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  animation: eq-scroll 42s linear infinite;
-}
-
-.eq-col.is-reverse .eq-track {
-  animation-name: eq-scroll-reverse;
-}
-
-.eq-item {
-  color: rgba(200, 210, 230, 0.12);
-  font-family: "CMU Serif", "Computer Modern", "Latin Modern Math", "KaTeX_Main", "Palatino Linotype", Georgia, serif;
-  font-style: italic;
-  font-size: clamp(1.6rem, 1.1vw + 1rem, 2.6rem);
-  line-height: 1.15;
-  letter-spacing: 0.02em;
-  white-space: nowrap;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
-}
-
-.eq-item.is-large {
-  color: rgba(200, 210, 230, 0.17);
-  font-size: clamp(2.2rem, 1.4vw + 1.1rem, 3.4rem);
-}
-
-.eq-item sub,
-.eq-item sup {
-  font-size: 0.64em;
-  line-height: 0;
-}
-
-/* ── Color scenes ── */
-.color-scene {
-  position: absolute;
-  inset: -10%;
-  opacity: 0;
-  transition: opacity 1200ms ease;
-}
-
-.color-scene.is-active {
-  opacity: 1;
-}
-
-.glow {
-  position: absolute;
-  border-radius: 999px;
-  filter: blur(100px);
-  animation: glow-wander 20s ease-in-out infinite alternate;
-}
-
-.scene-home .glow-a {
-  left: -4%;
-  top: 4%;
-  width: 38rem;
-  height: 32rem;
-  background: rgba(50, 190, 210, 0.28);
-}
-
-.scene-home .glow-b {
-  right: -2%;
-  top: 16%;
-  width: 30rem;
-  height: 26rem;
-  background: rgba(100, 130, 220, 0.24);
-  animation-delay: -7s;
-}
-
-.scene-home .glow-c {
-  right: 14%;
-  bottom: 4%;
-  width: 36rem;
-  height: 28rem;
-  background: rgba(255, 215, 150, 0.15);
-  animation-delay: -13s;
-}
-
-.scene-projects .glow-a {
-  left: 2%;
-  top: 10%;
-  width: 36rem;
-  height: 30rem;
-  background: rgba(50, 190, 210, 0.28);
-}
-
-.scene-projects .glow-b {
-  right: 4%;
-  bottom: 6%;
-  width: 32rem;
-  height: 28rem;
-  background: rgba(100, 130, 220, 0.24);
-  animation-delay: -9s;
-}
-
-.scene-projects .glow-c {
-  left: 40%;
-  top: 50%;
-  width: 26rem;
-  height: 26rem;
-  background: rgba(255, 215, 150, 0.15);
-  animation-delay: -4s;
-}
-
-.scene-writing .glow-a {
-  left: 0;
-  bottom: 2%;
-  width: 38rem;
-  height: 30rem;
-  background: rgba(50, 180, 200, 0.25);
-}
-
-.scene-writing .glow-b {
-  right: 4%;
-  top: 8%;
-  width: 32rem;
-  height: 26rem;
-  background: rgba(100, 130, 220, 0.22);
-  animation-delay: -10s;
-}
-
-.scene-writing .glow-c {
-  left: 30%;
-  top: 40%;
-  width: 24rem;
-  height: 24rem;
-  background: rgba(80, 160, 200, 0.16);
-  animation-delay: -5s;
-}
-
-.scene-default .glow-a {
-  left: 10%;
-  top: 16%;
-  width: 30rem;
-  height: 26rem;
-  background: rgba(50, 180, 210, 0.24);
-}
-
-.scene-default .glow-b {
-  right: 14%;
-  bottom: 10%;
-  width: 26rem;
-  height: 22rem;
-  background: rgba(100, 130, 220, 0.2);
-  animation-delay: -8s;
-}
-
-/* ═══════════════════════════════════════════
-   KEYFRAMES
-   ═══════════════════════════════════════════ */
-
-/* Action potential fires, travels, then rests */
-@keyframes fire-signal {
-  0% {
-    offset-distance: 0%;
-    opacity: 0;
-    fill: rgba(100, 200, 255, 0);
-    filter: drop-shadow(0 0 0 transparent);
-  }
-  5% {
-    opacity: 1;
-    fill: rgba(100, 220, 255, 1);
-    filter: drop-shadow(0 0 2px rgba(80, 200, 255, 0.9));
-  }
-  40% {
-    offset-distance: 100%;
-    opacity: 0.9;
-    fill: rgba(140, 100, 255, 0.8);
-    filter: drop-shadow(0 0 1.5px rgba(120, 100, 255, 0.7));
-  }
-  45% {
-    opacity: 0;
-  }
-  100% {
-    offset-distance: 100%;
-    opacity: 0;
-  }
-}
-
-/* Synapse spark — flashes when AP reaches target */
-@keyframes spark-flash {
-  0%, 30% {
-    fill: rgba(240, 235, 230, 0);
-    r: 0;
-  }
-  36% {
-    fill: rgba(245, 240, 235, 0.3);
-    r: 1.5;
-  }
-  40% {
-    fill: rgba(250, 248, 245, 0.4);
-    r: 2.5;
-  }
-  44% {
-    fill: rgba(240, 235, 230, 0.18);
-    r: 2;
-  }
-  50% {
-    fill: rgba(240, 235, 230, 0);
-    r: 0;
-  }
-  100% {
-    fill: rgba(240, 235, 230, 0);
-    r: 0;
-  }
-}
-
-/* Soma flashes bright when it "fires" */
-@keyframes soma-fire {
-  0%, 100% {
-    fill: rgba(70, 160, 255, 0.2);
-    filter: drop-shadow(0 0 0.3px rgba(70, 160, 255, 0.1));
-  }
-  15% {
-    fill: rgba(120, 220, 255, 0.7);
-    filter: drop-shadow(0 0 1.5px rgba(100, 210, 255, 0.5));
-  }
-  25% {
-    fill: rgba(180, 140, 255, 0.5);
-    filter: drop-shadow(0 0 1px rgba(160, 120, 255, 0.4));
-  }
-  40% {
-    fill: rgba(70, 160, 255, 0.25);
-    filter: drop-shadow(0 0 0.3px rgba(70, 160, 255, 0.1));
-  }
-}
-
-/* Membrane breathes */
-@keyframes membrane-pulse {
-  0%, 100% {
-    stroke: rgba(70, 150, 255, 0.08);
-    transform: scale(1);
-  }
-  15% {
-    stroke: rgba(120, 210, 255, 0.3);
-    transform: scale(1.3);
-  }
-  30% {
-    stroke: rgba(70, 150, 255, 0.1);
-    transform: scale(1.1);
-  }
-}
-
-/* Ripple expands out from neuron on fire */
-@keyframes ripple-expand {
-  0% {
-    transform: scale(0.4);
-    opacity: 0;
-    stroke: rgba(100, 200, 255, 0);
-  }
-  10% {
-    opacity: 0.5;
-    stroke: rgba(100, 200, 255, 0.25);
-  }
-  50% {
-    transform: scale(2.2);
-    opacity: 0.1;
-    stroke: rgba(140, 100, 255, 0.08);
-  }
-  100% {
-    transform: scale(3.5);
-    opacity: 0;
-    stroke: rgba(140, 100, 255, 0);
-  }
-}
-
-@keyframes glow-wander {
-  0% {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  33% {
-    transform: translate3d(4rem, -3rem, 0) scale(1.08);
-  }
-  66% {
-    transform: translate3d(-2rem, 2rem, 0) scale(0.95);
-  }
-  100% {
-    transform: translate3d(3rem, -1rem, 0) scale(1.12);
-  }
-}
-
-@keyframes eq-scroll {
-  0%, 100% {
-    transform: translate3d(0, -3%, 0);
-  }
-  50% {
-    transform: translate3d(0, -28%, 0);
-  }
-}
-
-@keyframes eq-scroll-reverse {
-  0%, 100% {
-    transform: translate3d(0, -26%, 0);
-  }
-  50% {
-    transform: translate3d(0, -1%, 0);
-  }
-}
-
-/* ═══════════════════════════════════════════
    RESPONSIVE
    ═══════════════════════════════════════════ */
 
 @media (max-width: 900px) {
-  .equation-layer {
-    display: none;
-  }
-
   section {
     margin-bottom: 5rem;
   }
@@ -490,20 +108,6 @@ a {
   html {
     scroll-behavior: auto;
   }
-
-  .action-potential,
-  .synapse-spark,
-  .neuron-soma,
-  .neuron-membrane,
-  .fire-ripple,
-  .glow,
-  .eq-track {
-    animation: none;
-  }
-
-  .color-scene {
-    transition: none;
-  }
 }
 
 /* ═══════════════════════════════════════════
@@ -511,14 +115,14 @@ a {
    ═══════════════════════════════════════════ */
 
 .reading-article {
-  color: #b0bcc8;
+  color: var(--article);
   overflow-x: hidden;
 }
 
 .reading-article h1,
 .reading-article h2,
 .reading-article h3 {
-  color: #e4e8ee;
+  color: var(--ink);
 }
 
 .reading-article h1 {
@@ -543,7 +147,7 @@ a {
 .reading-article li,
 .reading-article figcaption,
 .reading-article blockquote {
-  color: #9aa5b4;
+  color: var(--article-muted);
 }
 
 .reading-article p,
@@ -564,11 +168,11 @@ a {
 
 .reading-article strong,
 .reading-article em {
-  color: #e4e8ee;
+  color: var(--ink);
 }
 
 .reading-article a {
-  color: #5a9cff;
+  color: var(--accent);
 }
 
 .reading-article blockquote {

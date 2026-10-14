@@ -1,6 +1,8 @@
-export type NewsItem = {
-  date: string;
-  text: string;
+export type Role = {
+  role: string;
+  org: string;
+  orgHref?: string;
+  dates: string;
 };
 
 export type Project = {
@@ -19,7 +21,35 @@ export type Writing = {
   summary: string;
   href: string;
   kind: string;
+  external?: boolean;
+  action?: string;
 };
+
+export const notesUrl = "https://eliassf73.github.io/diffusion-and-flow-models/";
+export const seriesVideoUrl = "https://youtu.be/jkwg5HUIST4";
+export const cvHref = "/docs/Elias_Firisa_CV.pdf";
+export const saiUrl = "https://saitechhq.com/";
+
+export const experience: Role[] = [
+  { role: "AI Engineer", org: "SAI Technologies", orgHref: saiUrl, dates: "Sep 2025 – present" },
+  { role: "Generative Modeling Research Intern", org: "U-AIM Lab, KAIST", dates: "Sep 2025 – Aug 2026" },
+  { role: "ML Engineer Intern", org: "MolpaxBio", dates: "Jun – Sep 2025" },
+  { role: "Research Intern", org: "Decision Brain Dynamics Lab, KAIST", dates: "Dec 2024 – Jun 2025" },
+  {
+    role: "Research Intern",
+    org: "WormLab, University of Leeds",
+    orgHref: "https://eps.leeds.ac.uk/computing/staff/548/professor-netta-cohen",
+    dates: "Jun – Aug 2024",
+  },
+  { role: "Undergraduate Researcher", org: "Brain-Machine Intelligence Lab, KAIST", dates: "Feb – Nov 2024" },
+];
+
+export const honors = [
+  { title: "KAIST Scholarship, full tuition and stipend", year: "2022 – 2026" },
+  { title: "KAIST Alumni Scholarship", year: "2024" },
+  { title: "INSEO Engineering Scholarship", year: "2023" },
+  { title: "1st place, Web3 Blockchain Competition", year: "2023" },
+];
 
 export const featuredProjects: Project[] = [
   {
@@ -102,20 +132,32 @@ export const projectArchive: Project[] = [
 
 export const writings: Writing[] = [
   {
+    title: "Diffusion and Flow Models, from Scratch",
+    date: "2026",
+    summary:
+      "Open notes that build the chain from probability basics to DDPM, score matching, SDEs, the probability-flow ODE and flow matching. Every topic has the intuition, the derivation and working code, with interactive figures.",
+    href: notesUrl,
+    kind: "Open notes",
+    external: true,
+    action: "Read the notes",
+  },
+  {
     title: "Probabilistic Invertibility of Rectified Flows Beyond Global Monotonicity",
     date: "2026",
     summary:
       "A generic-in-time invertibility theory for rectified flow maps via a transversality argument, replacing global monotonicity with almost-sure injectivity under Gaussian initialization.",
     href: "/blog/posts/rectflow",
     kind: "Preprint",
+    action: "Read the preprint",
   },
   {
     title: "Least Squares and Likelihood in Linear Regression",
-    date: "June 29, 2025",
+    date: "June 2025",
     summary:
       "A note on linear regression from the least-squares and likelihood points of view.",
     href: "/blog/posts/slug",
     kind: "Technical essay",
+    action: "Read the essay",
   },
 ];
 
@@ -136,3 +178,6 @@ export const contactLinks = [
     href: "https://www.linkedin.com/in/elias-firisa-4ba178231/",
   },
 ];
+
+/* Colour theme, set on <html>. "paper" is the light theme in globals.css; "dark" is the original palette. */
+export const look: { theme: "dark" | "paper" } = { theme: "paper" };

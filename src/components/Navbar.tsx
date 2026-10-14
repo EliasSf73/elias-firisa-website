@@ -9,7 +9,8 @@ const links = [
   { href: "/", label: "Home" },
   { href: "/projects", label: "Projects" },
   { href: "/blog", label: "Writing" },
-  { href: "/docs/Elias_CV.pdf", label: "CV", external: true },
+  { href: "https://eliassf73.github.io/diffusion-and-flow-models/", label: "Notes", external: true },
+  { href: "/docs/Elias_Firisa_CV.pdf", label: "CV", external: true },
 ];
 
 const Navbar = () => {
@@ -24,7 +25,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="sticky top-0 z-50 bg-[rgba(17,20,24,0.88)] backdrop-blur-md">
+    <nav className="sticky top-0 z-50 bg-[var(--nav-bg)] backdrop-blur-md">
       <div className="border-b border-slate-700/70 py-5">
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div className="flex items-center gap-4">
@@ -40,7 +41,7 @@ const Navbar = () => {
               Elias Firisa
             </Link>
           </div>
-          <ul className="flex flex-wrap items-center gap-y-3 text-[0.98rem] font-medium text-slate-400">
+          <ul className="flex flex-wrap items-center gap-y-3 text-[0.92rem] font-medium text-slate-400 sm:text-[0.98rem]">
             {links.map((link, index) => (
               <li key={link.href} className="flex items-center">
                 <Link
@@ -56,7 +57,7 @@ const Navbar = () => {
                   {link.label}
                 </Link>
                 {index < links.length - 1 ? (
-                  <span aria-hidden="true" className="px-4 text-slate-600">
+                  <span aria-hidden="true" className="px-2 text-slate-600 sm:px-4">
                     /
                   </span>
                 ) : null}

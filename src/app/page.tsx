@@ -1,17 +1,54 @@
 import Link from "next/link";
-import { contactLinks } from "@/data/site";
+import FlowHero from "@/components/FlowHero";
+import { contactLinks, cvHref, experience, honors, notesUrl, saiUrl, seriesVideoUrl } from "@/data/site";
+
+const basePath = process.env.NODE_ENV === "production" ? "/elias-firisa-website" : "";
 
 const newsLink = "text-slate-100 font-semibold underline decoration-slate-600 underline-offset-[3px] transition hover:decoration-slate-400";
+const label = "text-sm uppercase tracking-[0.24em] text-slate-500";
 
 const newsItems = [
   {
-    date: "Summer 2024",
+    date: "Oct 2026",
     content: (
       <>
-        Research intern at the{" "}
-        <a href="https://eps.leeds.ac.uk/computing" target="_blank" rel="noopener noreferrer" className={newsLink}>University of Leeds</a>
-        , advised by{" "}
-        <a href="https://eps.leeds.ac.uk/computing/staff/548/professor-netta-cohen" target="_blank" rel="noopener noreferrer" className={newsLink}>Netta Cohen</a>.
+        Posted a{" "}
+        <a href={seriesVideoUrl} target="_blank" rel="noopener noreferrer" className={newsLink}>recorded discussion</a>{" "}
+        from our study series with friends learning together: Jensen&rsquo;s inequality, KL divergence and the ELBO, on
+        the way to DDPM.
+      </>
+    ),
+  },
+  {
+    date: "Sep 2026",
+    content: (
+      <>
+        Started full-time as an AI Engineer at{" "}
+        <a href={saiUrl} target="_blank" rel="noopener noreferrer" className={newsLink}>SAI Technologies</a>, building
+        vision models that run on edge devices.
+      </>
+    ),
+  },
+  {
+    date: "Sep 2026",
+    content: (
+      <>
+        Published{" "}
+        <a href={notesUrl} target="_blank" rel="noopener noreferrer" className={newsLink}>Diffusion and Flow Models, from Scratch</a>
+        , open notes with derivations, code and interactive figures.
+      </>
+    ),
+  },
+  {
+    date: "Aug 2026",
+    content: <>Graduated from KAIST with a B.S. in Brain &amp; Cognitive Sciences and a minor in Industrial &amp; Systems Engineering.</>,
+  },
+  {
+    date: "2026",
+    content: (
+      <>
+        Preprint:{" "}
+        <Link href="/blog/posts/rectflow" className={newsLink}>Probabilistic Invertibility of Rectified Flows Beyond Global Monotonicity</Link>.
       </>
     ),
   },
@@ -19,68 +56,169 @@ const newsItems = [
 
 export default function Home() {
   return (
-    <div className="py-14 text-slate-100">
-      <blockquote className="mb-8">
-        <p className="font-display text-lg italic text-slate-400">&ldquo;Somewhere, something incredible is waiting to be known.&rdquo;</p>
-        <footer className="mt-1 text-xs tracking-wide text-slate-500">Carl Sagan</footer>
-      </blockquote>
-
-      <section className="max-w-3xl space-y-7">
-        <h1 className="text-5xl font-display leading-[0.98] text-slate-100 md:text-7xl">
-          Brains and machines
-        </h1>
-        <p className="max-w-2xl text-lg leading-relaxed text-slate-300">
-          Undergraduate student in Brain and Cognitive Science at KAIST.
-        </p>
+    <div className="py-10 text-slate-100">
+      <section className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="space-y-7">
+          <p className="text-sm uppercase tracking-[0.24em] text-slate-500">
+            AI Engineer &middot;{" "}
+            <a href={saiUrl} target="_blank" rel="noopener noreferrer" className="underline decoration-slate-600 underline-offset-4 transition hover:text-slate-300 hover:decoration-slate-400">
+              SAI Technologies
+            </a>
+          </p>
+          <h1 className="text-5xl font-display leading-[0.98] text-slate-100 md:text-7xl">Brains and machines</h1>
+          <p className="max-w-xl text-lg leading-relaxed text-slate-300">
+            I build vision models that run on small devices, and I study the mathematics of diffusion and flow models. I
+            finished a B.S. in Brain &amp; Cognitive Sciences at KAIST in August 2026.
+          </p>
+          <p className="max-w-xl text-base leading-relaxed text-slate-400">
+            Research interests: generative modeling theory (flow matching, diffusion), representation learning,
+            variational inference, and computational neuroscience.
+          </p>
+          <div className="flex flex-wrap gap-3 pt-1">
+            <a
+              href={`${basePath}${cvHref}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full bg-slate-100 px-5 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-50"
+            >
+              CV
+            </a>
+            <a
+              href={notesUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full border border-slate-600 px-5 py-2 text-sm font-semibold text-slate-200 transition hover:border-slate-400"
+            >
+              Notes &#8599;
+            </a>
+            <a
+              href="mailto:eliassfirisa@gmail.com"
+              className="rounded-full border border-slate-600 px-5 py-2 text-sm font-semibold text-slate-200 transition hover:border-slate-400"
+            >
+              Email
+            </a>
+          </div>
+        </div>
+        <div className="mx-auto w-full max-w-[480px]">
+          <FlowHero />
+        </div>
       </section>
 
       <section className="border-t border-slate-700/70 pt-8">
-        <p className="text-sm uppercase tracking-[0.24em] text-slate-500">News</p>
-        <ul className="mt-4 space-y-4">
+        <p className={label}>News</p>
+        <ul className="mt-5 space-y-4">
           {newsItems.map((item, i) => (
-            <li key={i} className="flex gap-4 text-base">
-              <span className="shrink-0 w-28 font-semibold text-slate-500">{item.date}</span>
+            <li key={i} className="flex flex-col gap-1 text-base sm:flex-row sm:gap-4">
+              <span className="w-24 shrink-0 font-semibold text-slate-500">{item.date}</span>
               <span className="text-slate-300">{item.content}</span>
             </li>
           ))}
         </ul>
       </section>
 
-      <section className="grid gap-14 border-t border-slate-700/70 pt-8 lg:grid-cols-[1.12fr,0.88fr]">
-        <div className="space-y-6">
-          <p className="text-sm uppercase tracking-[0.24em] text-slate-500">About</p>
-          <p className="max-w-2xl text-lg leading-relaxed text-slate-300">
-            I study how models learn from little data. My work focuses on representation learning, disentanglement, and diffusion/flow-based generative models, asking what structure makes efficient learning possible.
+      <section className="grid gap-10 border-t border-slate-700/70 pt-8 md:grid-cols-[1.1fr_0.9fr] md:items-center">
+        <div>
+          <p className={label}>Teaching</p>
+          <h2 className="mt-4 text-3xl text-slate-100 md:text-4xl">Diffusion and Flow Models, from Scratch</h2>
+          <p className="mt-4 max-w-xl text-base leading-relaxed text-slate-300">
+            I am re-learning the foundations properly and writing it down as I go. The notes start from random variables
+            and work toward DDPM, score matching and flow matching, with every step derived. Friends and I go through them
+            in recorded sessions, questions and mistakes included.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold">
+            <a href={notesUrl} target="_blank" rel="noopener noreferrer" className="text-slate-200 underline decoration-slate-500 underline-offset-4 hover:text-slate-50">
+              Read the notes
+            </a>
+            <a href={seriesVideoUrl} target="_blank" rel="noopener noreferrer" className="text-slate-200 underline decoration-slate-500 underline-offset-4 hover:text-slate-50">
+              Watch a recorded session
+            </a>
+          </div>
+          <p className="mt-6 max-w-xl text-sm leading-relaxed text-slate-500">
+            Before that, I tutored KAIST undergraduates in linear algebra, probability, biology and systems neuroscience
+            (2024&ndash;2025).
           </p>
         </div>
+        <a
+          href={seriesVideoUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group block overflow-hidden rounded-2xl border border-slate-700/70"
+        >
+          <img
+            src={`${basePath}/images/series-elbo.png`}
+            alt="Recorded discussion: Jensen, KL and the ELBO"
+            width={1280}
+            height={720}
+            className="block h-auto w-full transition duration-500 group-hover:scale-[1.02]"
+          />
+        </a>
+      </section>
 
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-1">
+      <section className="grid gap-12 border-t border-slate-700/70 pt-8 lg:grid-cols-[1.25fr_0.75fr]">
+        <div>
+          <p className={label}>Experience</p>
+          <ul className="mt-5 space-y-3">
+            {experience.map((r) => (
+              <li key={r.role + r.org} className="flex flex-col gap-0.5 text-base sm:flex-row sm:gap-4">
+                <span className="w-44 shrink-0 text-sm text-slate-500 sm:pt-0.5">{r.dates}</span>
+                <span className="text-slate-300">
+                  <span className="text-slate-100">{r.role}</span>
+                  {", "}
+                  {r.orgHref ? (
+                    <a href={r.orgHref} target="_blank" rel="noopener noreferrer" className="underline decoration-slate-600 underline-offset-4 hover:decoration-slate-400">
+                      {r.org}
+                    </a>
+                  ) : (
+                    r.org
+                  )}
+                </span>
+              </li>
+            ))}
+          </ul>
+          <a
+            href={`${basePath}${cvHref}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-flex text-sm font-semibold text-slate-200 underline decoration-slate-500 underline-offset-4 hover:text-slate-50"
+          >
+            Details in my CV &#8599;
+          </a>
+        </div>
+
+        <div className="space-y-10">
           <div>
-            <p className="text-sm uppercase tracking-[0.24em] text-slate-500">Current focus</p>
-            <ul className="mt-4 space-y-3 text-base text-slate-300">
-              <li>Efficient learning and generalization from limited data</li>
-              <li>Disentangled representations</li>
-              <li>Diffusion and flow-based generative models</li>
+            <p className={label}>Education</p>
+            <p className="mt-5 text-base text-slate-100">B.S. Brain &amp; Cognitive Sciences, KAIST</p>
+            <p className="text-sm text-slate-400">Minor in Industrial &amp; Systems Engineering &middot; 2022 &ndash; 2026</p>
+          </div>
+          <div>
+            <p className={label}>Honors</p>
+            <ul className="mt-5 space-y-2">
+              {honors.map((h) => (
+                <li key={h.title} className="text-[0.97rem] text-slate-300">
+                  {h.title} <span className="text-slate-500">&middot; {h.year}</span>
+                </li>
+              ))}
             </ul>
           </div>
+        </div>
+      </section>
 
-          <div>
-            <p className="text-sm uppercase tracking-[0.24em] text-slate-500">Links</p>
-            <div className="mt-4 space-y-3">
-              {contactLinks.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  target={link.href.startsWith("http") ? "_blank" : undefined}
-                  rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="flex flex-wrap items-center justify-between gap-2 rounded-lg px-3 py-2.5 text-sm text-slate-300 transition hover:bg-slate-700/40 hover:text-slate-100"
-                >
-                  <span className="uppercase tracking-[0.18em] text-slate-500">{link.label}</span>
-                  <span className="font-semibold">{link.value}</span>
-                </Link>
-              ))}
-            </div>
-          </div>
+      <section className="border-t border-slate-700/70 pt-8">
+        <p className={label}>Links</p>
+        <div className="mt-4 grid gap-2 sm:grid-cols-3">
+          {contactLinks.map((link) => (
+            <Link
+              key={link.label}
+              href={link.href}
+              target={link.href.startsWith("http") ? "_blank" : undefined}
+              rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+              className="flex flex-col rounded-lg border border-slate-700/60 px-4 py-3 text-sm text-slate-300 transition hover:border-slate-500 hover:text-slate-100"
+            >
+              <span className="text-xs uppercase tracking-[0.18em] text-slate-500">{link.label}</span>
+              <span className="mt-1 font-semibold">{link.value}</span>
+            </Link>
+          ))}
         </div>
       </section>
 

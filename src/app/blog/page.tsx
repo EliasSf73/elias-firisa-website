@@ -9,7 +9,7 @@ const Blog = () => {
           Writing
         </h1>
         <p className="mt-6 max-w-3xl text-lg text-slate-300">
-          A small set of notes and longer explanations.
+          Longer explanations, a preprint, and an open set of notes on diffusion and flow models.
         </p>
       </section>
 
@@ -24,19 +24,17 @@ const Blog = () => {
             <p className="mt-4 max-w-2xl text-base text-slate-300">{post.summary}</p>
             <Link
               href={post.href}
+              target={post.external ? "_blank" : undefined}
+              rel={post.external ? "noopener noreferrer" : undefined}
               className="mt-5 inline-flex text-sm font-semibold text-slate-200 underline decoration-slate-500 underline-offset-4 transition hover:text-slate-50"
             >
-              Read article
+              {post.action ?? "Read article"}
+              {post.external ? " \u2197" : ""}
             </Link>
           </article>
         ))}
       </section>
 
-      <section className="mt-16 max-w-3xl border-t border-slate-700/60 pt-8">
-        <p className="text-sm text-slate-400">
-          More notes will be added here.
-        </p>
-      </section>
     </div>
   );
 };

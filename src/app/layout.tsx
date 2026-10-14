@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import "katex/dist/katex.min.css";
-import BackgroundScene from "@/components/BackgroundScene";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { look } from "@/data/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Elias Firisa | Brains & Machines",
-  description: "Personal site of Elias Firisa. Work and writing in AI and computational neuroscience.",
+  description: "Elias Firisa: AI engineer at SAI Technologies, KAIST Brain & Cognitive Sciences 2026. Notes and research on diffusion and flow models.",
 };
 
 export default function RootLayout({
@@ -16,11 +16,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme={look.theme}>
       <body className="font-sans antialiased">
-        <BackgroundScene />
         <div className="relative z-10">
-          <div className="content-frost" aria-hidden="true" />
           <div className="container mx-auto px-6">
             <Navbar />
             <main className="py-8">{children}</main>
