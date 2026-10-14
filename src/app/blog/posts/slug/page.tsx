@@ -1,6 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 import { LaTeX } from '@/components/LaTeX';
+import ProjectionViews from '@/components/ProjectionViews';
+
+const basePath = process.env.NODE_ENV === "production" ? "/elias-firisa-website" : "";
 
 export const metadata = {
   title: 'Least Squares and Likelihood in Linear Regression',
@@ -437,6 +440,47 @@ const LinearRegression = () => {
           using the available features. The residual vector <LaTeX math={String.raw`y - \hat{y}`} /> is
           <strong> orthogonal</strong> to the subspace spanned by the feature vectors.
         </p>
+
+        <p>
+          With only three data points, this subspace can actually be drawn. Stack the three targets into one vector
+          {" "}<LaTeX math={String.raw`y \in \mathbb{R}^3`} />, one axis per data point. Each choice of line is then one
+          point <LaTeX math={String.raw`\tilde{X}\tilde{w}`} /> on the plane spanned by the two columns of
+          {" "}<LaTeX math={String.raw`\tilde{X}`} />, and the best line is the point of that plane closest to
+          {" "}<LaTeX math={String.raw`y`} />.
+        </p>
+
+        <ProjectionViews />
+
+        <p>
+          The picture also gives the normal equations a second time, with no calculus. At the best fit the residual
+          {" "}<LaTeX math={String.raw`y - \tilde{X}\tilde{w}`} /> is perpendicular to the plane, so it is perpendicular
+          to every column of <LaTeX math={String.raw`\tilde{X}`} />: its dot product with each column is zero. Stacking
+          those dot products into one vector gives
+        </p>
+
+        <LaTeX math={String.raw`\tilde{X}^\top \left(y - \tilde{X}\tilde{w}\right) = 0 \quad\Longleftrightarrow\quad \tilde{X}^\top \tilde{X}\,\tilde{w} = \tilde{X}^\top y,`} displayMode={true} />
+
+        <p>
+          exactly the equations the gradient gave us above. Setting the gradient to zero and dropping a perpendicular are
+          the same condition.
+        </p>
+
+        <figure className="my-8">
+          <video
+            className="block w-full rounded-lg border border-slate-700/60"
+            controls
+            muted
+            playsInline
+            preload="none"
+            poster={`${basePath}/videos/least-squares-projection.jpg`}
+          >
+            <source src={`${basePath}/videos/least-squares-projection.mp4`} type="video/mp4" />
+          </video>
+          <figcaption className="mt-2 text-sm text-slate-400">
+            The same three points, from the scatter plot to data space: every line is a point on the plane, and the best
+            one is the foot of the perpendicular from <em>y</em>.
+          </figcaption>
+        </figure>
 
 
 
