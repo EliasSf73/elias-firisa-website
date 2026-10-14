@@ -38,7 +38,7 @@ export const experience: Role[] = [
   {
     role: "Research Intern",
     org: "WormLab, University of Leeds",
-    orgHref: "https://eps.leeds.ac.uk/computing/staff/548/professor-netta-cohen",
+    orgHref: "http://wormlab.eu/",
     dates: "Jun – Aug 2024",
   },
   { role: "Undergraduate Researcher", org: "Brain-Machine Intelligence Lab, KAIST", dates: "Feb – Nov 2024" },
