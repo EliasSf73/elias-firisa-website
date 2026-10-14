@@ -6,7 +6,7 @@ import { look } from "@/data/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Elias Firisa | Brains & Machines",
+  title: "Elias Firisa | Making sense of noise",
   description: "Elias Firisa: AI engineer at SAI Technologies, KAIST Brain & Cognitive Sciences 2026. Notes and research on diffusion and flow models.",
 };
 

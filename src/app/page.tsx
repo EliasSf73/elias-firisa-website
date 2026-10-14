@@ -56,25 +56,36 @@ const newsItems = [
 
 export default function Home() {
   return (
-    <div className="py-10 text-slate-100">
-      <section className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
-        <div className="space-y-7">
-          <p className="text-sm uppercase tracking-[0.24em] text-slate-500">
-            AI Engineer &middot;{" "}
-            <a href={saiUrl} target="_blank" rel="noopener noreferrer" className="underline decoration-slate-600 underline-offset-4 transition hover:text-slate-300 hover:decoration-slate-400">
-              SAI Technologies
-            </a>
-          </p>
-          <h1 className="text-5xl font-display leading-[0.98] text-slate-100 md:text-7xl">Brains and machines</h1>
-          <p className="max-w-xl text-lg leading-relaxed text-slate-300">
-            I build vision models that run on small devices, and I study the mathematics of diffusion and flow models. I
-            finished a B.S. in Brain &amp; Cognitive Sciences at KAIST in August 2026.
-          </p>
-          <p className="max-w-xl text-base leading-relaxed text-slate-400">
+    <div className="pb-10 pt-0 text-slate-100">
+      <section className="grid items-start gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+        <div>
+          <div className="max-w-2xl space-y-3">
+            <p className="text-[0.95rem] leading-relaxed text-slate-400">
+              B.S. Brain &amp; Cognitive Sciences &middot;{" "}
+              <a href="https://www.kaist.ac.kr/en/" target="_blank" rel="noopener noreferrer" className="underline decoration-slate-400 underline-offset-4 transition hover:text-slate-200 hover:decoration-slate-100">
+                KAIST
+              </a>{" "}
+              &middot; 2026
+              <span className="block">(minor in Industrial &amp; Systems Engineering)</span>
+            </p>
+            <p className="max-w-xl text-pretty text-lg leading-relaxed text-slate-300">
+              <span className="font-semibold text-slate-100">
+                AI Engineer &middot;{" "}
+                <a href={saiUrl} target="_blank" rel="noopener noreferrer" className="underline decoration-slate-400 underline-offset-4 transition hover:decoration-slate-100">
+                  SAI Technologies
+                </a>
+                :
+              </span>{" "}
+              I build vision models that run on small devices.
+            </p>
+          </div>
+
+          <h1 className="mt-14 text-5xl font-display leading-[0.98] text-balance text-slate-100 md:text-7xl">Making sense of noise</h1>
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-slate-400">
             Research interests: generative modeling theory (flow matching, diffusion), representation learning,
             variational inference, and computational neuroscience.
           </p>
-          <div className="flex flex-wrap gap-3 pt-1">
+          <div className="mt-7 flex flex-wrap gap-3">
             <a
               href={`${basePath}${cvHref}`}
               target="_blank"

@@ -86,8 +86,10 @@ p {
   color: var(--muted);
 }
 
-a {
-  text-decoration: none;
+@layer base {
+  a {
+    text-decoration: none;
+  }
 }
 
 ::selection {
