@@ -9,7 +9,7 @@ const Blog = () => {
           Writing
         </h1>
         <p className="mt-6 max-w-3xl text-lg text-slate-300">
-          Longer explanations, a preprint, and an open set of notes on diffusion and flow models.
+          Longer explanations, open notes on diffusion and flow models, and the recorded sessions that go with them.
         </p>
       </section>
 

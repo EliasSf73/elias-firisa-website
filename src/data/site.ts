@@ -27,6 +27,7 @@ export type Writing = {
 
 export const notesUrl = "https://eliassf73.github.io/diffusion-and-flow-models/";
 export const seriesVideoUrl = "https://youtu.be/jkwg5HUIST4";
+export const seriesPlaylistUrl = "https://www.youtube.com/playlist?list=PLevbemcX-rzk";
 export const cvHref = "/docs/Elias_Firisa_CV.pdf";
 export const saiUrl = "https://saitechhq.com/";
 
@@ -140,6 +141,16 @@ export const writings: Writing[] = [
     kind: "Open notes",
     external: true,
     action: "Read the notes",
+  },
+  {
+    title: "Diffusion and Flow Models, from Scratch: recorded sessions",
+    date: "2026",
+    summary:
+      "Recorded discussions that follow the notes, with corrections in each video's description.",
+    href: seriesPlaylistUrl,
+    kind: "Video series",
+    external: true,
+    action: "Watch the playlist",
   },
   {
     title: "Least Squares and Likelihood in Linear Regression",
