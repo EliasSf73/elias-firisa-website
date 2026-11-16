@@ -43,15 +43,6 @@ const newsItems = [
     date: "Aug 2026",
     content: <>Graduated from KAIST with a B.S. in Brain &amp; Cognitive Sciences and a minor in Industrial &amp; Systems Engineering.</>,
   },
-  {
-    date: "2026",
-    content: (
-      <>
-        Preprint:{" "}
-        <Link href="/blog/posts/rectflow" className={newsLink}>Probabilistic Invertibility of Rectified Flows Beyond Global Monotonicity</Link>.
-      </>
-    ),
-  },
 ];
 
 export default function Home() {

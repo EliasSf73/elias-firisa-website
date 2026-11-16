@@ -135,20 +135,11 @@ export const writings: Writing[] = [
     title: "Diffusion and Flow Models, from Scratch",
     date: "2026",
     summary:
-      "Open notes that build the chain from probability basics to DDPM, score matching, SDEs, the probability-flow ODE and flow matching. Every topic has the intuition, the derivation and working code, with interactive figures.",
+      "Open notes that build diffusion and flow models up from probability foundations, growing chapter by chapter. Each idea comes in plain words, a small example and a picture before the formula, with interactive figures and code.",
     href: notesUrl,
     kind: "Open notes",
     external: true,
     action: "Read the notes",
-  },
-  {
-    title: "Probabilistic Invertibility of Rectified Flows Beyond Global Monotonicity",
-    date: "2026",
-    summary:
-      "A generic-in-time invertibility theory for rectified flow maps via a transversality argument, replacing global monotonicity with almost-sure injectivity under Gaussian initialization.",
-    href: "/blog/posts/rectflow",
-    kind: "Preprint",
-    action: "Read the preprint",
   },
   {
     title: "Least Squares and Likelihood in Linear Regression",
