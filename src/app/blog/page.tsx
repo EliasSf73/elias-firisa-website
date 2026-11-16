@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { writings } from "@/data/site";
 
+const basePath = process.env.NODE_ENV === "production" ? "/elias-firisa-website" : "";
+
 const Blog = () => {
   return (
     <div className="min-h-screen pb-14 pt-10 text-slate-100">
@@ -22,6 +24,32 @@ const Blog = () => {
             </div>
             <h2 className="mt-4 text-3xl font-display text-slate-100">{post.title}</h2>
             <p className="mt-4 max-w-2xl text-base text-slate-300">{post.summary}</p>
+            {post.image && (
+              <a
+                href={post.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={post.action ?? post.title}
+                className="group relative mt-6 block max-w-2xl overflow-hidden rounded-lg border border-slate-700/70"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`${basePath}${post.image.src}`}
+                  alt={post.image.alt}
+                  width={1200}
+                  height={446}
+                  loading="lazy"
+                  className="block h-auto w-full transition duration-200 group-hover:opacity-90"
+                />
+                <span className="absolute bottom-2 left-2 sm:bottom-3 sm:left-3">
+                  <span className="flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-full bg-black/60 transition group-hover:bg-black/80">
+                    <svg viewBox="0 0 24 24" className="ml-0.5 h-4 w-4 sm:h-5 sm:w-5 fill-white" aria-hidden="true">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </span>
+                </span>
+              </a>
+            )}
             <Link
               href={post.href}
               target={post.external ? "_blank" : undefined}

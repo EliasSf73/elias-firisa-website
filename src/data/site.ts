@@ -23,6 +23,7 @@ export type Writing = {
   kind: string;
   external?: boolean;
   action?: string;
+  image?: { src: string; alt: string };
 };
 
 export const notesUrl = "https://eliassf73.github.io/diffusion-and-flow-models/";
@@ -151,6 +152,10 @@ export const writings: Writing[] = [
     kind: "Video series",
     external: true,
     action: "Watch the playlist",
+    image: {
+      src: "/images/session-02-elbo.jpg",
+      alt: "Session 2 slide deriving the evidence lower bound: log p(x) split into the ELBO and a KL divergence",
+    },
   },
   {
     title: "Least Squares and Likelihood in Linear Regression",
